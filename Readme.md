@@ -1,4 +1,4 @@
-# BagsProMax
+# MK Bags
 
 Premium bags e-commerce website built with HTML, CSS, Bootstrap 5, and JavaScript.
 

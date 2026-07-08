@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | BagsProMax</title>
+    <meta name="description" content="Get in touch with BagsProMax. We're here to help with orders, returns, and product questions.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body data-page="contact">
+
+    <div class="top-bar" id="topBar">
+        <div class="container">
+            <p class="mb-0" id="topBarText">FREE GLOBAL SHIPPING ON ORDERS OVER $150</p>
+            <button type="button" class="top-bar-close" id="closeTopBar" aria-label="Close announcement">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo/logo.svg" alt="BagsProMax" class="logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active">Contact Us</a></li>
+                </ul>
+                <div class="navbar-actions d-flex align-items-center gap-2">
+                    <button type="button" class="icon-btn" aria-label="Search" onclick="location.href='products.html'">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button type="button" class="icon-btn position-relative" aria-label="Shopping cart"
+                        data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                        <i class="bi bi-bag"></i>
+                        <span id="cartCount" class="cart-badge">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact-hero">
+        <div class="container text-center">
+            <h1>Get in Touch</h1>
+            <p>Have a question about a product, your order, or just want to say hello? Our team is here and ready to help.</p>
+        </div>
+    </section>
+
+    <section class="contact-main-section">
+        <div class="container">
+            <div class="contact-main-card">
+                <div class="row g-0">
+                    <div class="col-lg-7">
+                        <div class="contact-form-side">
+                            <h2>Send us a message</h2>
+                            <p class="contact-form-sub">We typically reply within 24 hours.</p>
+                            <form id="contactForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" placeholder="Jane" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="contactEmail" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="contactEmail" placeholder="jane@example.com" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="contactPhone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="contactPhone" placeholder="+1 (555) 000-0000">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="orderNumber" class="form-label">Order Number (Optional)</label>
+                                        <input type="text" class="form-control" id="orderNumber" placeholder="#BPM-12345">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="contactMessage" class="form-label">Message</label>
+                                        <textarea class="form-control" id="contactMessage" rows="5" placeholder="How can we help you?" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                                            <i class="bi bi-send me-2"></i>Send Message
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="contact-info-side">
+                            <h2>Contact Information</h2>
+                            <div class="contact-info-block">
+                                <div class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                                <div>
+                                    <h6>Our Headquarters</h6>
+                                    <p>123 Design Avenue, Suite 400<br>San Francisco, CA 94107</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-block">
+                                <div class="contact-info-icon"><i class="bi bi-telephone-fill"></i></div>
+                                <div>
+                                    <h6>Phone</h6>
+                                    <p>+1 (800) 123-4567<br><span>Mon-Fri, 9am - 6pm PST</span></p>
+                                </div>
+                            </div>
+                            <div class="contact-info-block">
+                                <div class="contact-info-icon"><i class="bi bi-envelope-fill"></i></div>
+                                <div>
+                                    <h6>Email</h6>
+                                    <p>support@bagspromax.com</p>
+                                </div>
+                            </div>
+                            <a href="https://wa.me/18001234567" target="_blank" class="btn btn-whatsapp w-100">
+                                <i class="bi bi-whatsapp me-2"></i>Chat on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-map-placeholder">
+                <div class="map-pin">
+                    <div class="map-pin-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                    <span>BagsProMax HQ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-5">
+                    <a href="index.html" class="footer-brand">
+                        <img src="assets/images/logo/logo-white.svg" alt="BagsProMax" class="footer-logo">
+                    </a>
+                    <p class="footer-about">
+                        Premium quality bags designed for the modern lifestyle. Carry more, live better,
+                        without compromising on style.
+                    </p>
+                    <div class="social-links d-flex gap-3">
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-heading">Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Returns Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p class="mb-0">&copy; 2024 BagsProMax. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="offcanvas offcanvas-end cart-offcanvas" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartLabel">
+        <div class="offcanvas-header">
+            <h4 id="cartLabel" class="fw-bold mb-0">Your Cart (<span id="cartTitleCount">0</span>)</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body cart-offcanvas-body">
+            <div id="cartItems" class="cart-items-list"></div>
+            <div id="cartFooter" class="cart-footer d-none">
+                <div class="cart-subtotal">
+                    <span>Subtotal</span>
+                    <strong id="grandTotal">$0</strong>
+                </div>
+                <button class="btn btn-primary btn-lg w-100" onclick="sendWhatsAppOrder()">Checkout via WhatsApp</button>
+                <p class="cart-note">Shipping &amp; taxes calculated at checkout</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/18001234567" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/whatsapp.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

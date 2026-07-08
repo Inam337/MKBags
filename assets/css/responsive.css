@@ -1,0 +1,161 @@
+/*=========================================================
+RESPONSIVE CSS — BagsProMax
+=========================================================*/
+
+@media (max-width: 1199px) {
+    .hero-title {
+        font-size: 48px;
+    }
+
+    .products-toolbar {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-field-wrap {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        padding: 16px 0;
+    }
+
+    .navbar-nav {
+        margin-bottom: 16px;
+    }
+
+    .navbar-actions {
+        padding-bottom: 8px;
+    }
+
+    .hero-section,
+    .min-vh-hero {
+        min-height: 480px;
+    }
+
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .commitment-title {
+        font-size: 30px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+
+    .contact-info-side {
+        border-left: none;
+        border-top: 1px solid var(--border);
+    }
+
+    .about-stats {
+        gap: 32px;
+    }
+
+    .cart-offcanvas {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-section,
+    .min-vh-hero {
+        min-height: 420px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .trending-section,
+    .commitment-section,
+    .about-journey-section,
+    .difference-section,
+    .products-page-section {
+        padding: 60px 0;
+    }
+
+    .section-title,
+    .products-page-header h1,
+    .about-hero h1,
+    .contact-hero h1 {
+        font-size: 32px;
+    }
+
+    .feature-item {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .products-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .toolbar-select {
+        min-width: 100%;
+    }
+
+    .product-actions-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .qty-control {
+        justify-content: center;
+    }
+
+    .contact-form-side,
+    .contact-info-side {
+        padding: 28px 24px;
+    }
+
+    .about-hero h1 {
+        font-size: 34px;
+    }
+
+    .about-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .top-bar {
+        font-size: 11px;
+    }
+
+    .product-image-wrap {
+        min-height: 200px;
+    }
+
+    .product-image {
+        height: 160px;
+    }
+
+    .mission-card,
+    .vision-card {
+        padding: 28px 24px;
+    }
+}

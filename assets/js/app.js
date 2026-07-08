@@ -78,10 +78,12 @@ function initContactForm() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    updateCartUI();
-    setActiveNavLink();
-    initTopBar();
-    initBackToTop();
-    initLoader();
-    initContactForm();
+    dataReady.then(() => {
+        updateCartUI();
+        setActiveNavLink();
+        initTopBar();
+        initBackToTop();
+        initLoader();
+        initContactForm();
+    });
 });

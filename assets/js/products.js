@@ -171,6 +171,8 @@ function initProductsPage() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    renderTrendingProducts();
-    initProductsPage();
+    dataReady.then(() => {
+        renderTrendingProducts();
+        initProductsPage();
+    });
 });

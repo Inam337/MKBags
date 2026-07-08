@@ -10,7 +10,7 @@ const SITE_CONFIG = {
     brand: "BAGSPROMAX",
     currency: "USD",
     currencySymbol: "$",
-    whatsapp: "18001234567",
+    whatsapp: "923356000819",
     email: "support@bagspromax.com",
     phone: "+923356000819",
     phoneHours: "Mon-Fri, 9am - 6pm PST",

@@ -12,7 +12,7 @@ const SITE_CONFIG = {
     currencySymbol: "$",
     whatsapp: "18001234567",
     email: "support@bagspromax.com",
-    phone: "+1 (800) 123-4567",
+    phone: "+923356000819",
     phoneHours: "Mon-Fri, 9am - 6pm PST",
     address: "123 Design Avenue, Suite 400, San Francisco, CA 94107",
     hours: "Mon-Fri, 9am - 6pm PST",

@@ -118,7 +118,7 @@ function loadHtml2Canvas() {
     return html2canvasPromise;
 }
 
-async function renderOrderCardImage(html) {
+async function renderCardImage(html) {
     const container = getCaptureContainer();
     container.innerHTML = html;
     const card = container.firstElementChild;
@@ -135,6 +135,10 @@ async function renderOrderCardImage(html) {
     return new Promise(resolve => canvas.toBlob(resolve, "image/png", 0.95));
 }
 
+async function renderOrderCardImage(html) {
+    return renderCardImage(html);
+}
+
 function openWhatsAppText(text) {
     const url = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
@@ -149,11 +153,63 @@ function downloadBlob(blob, filename) {
     URL.revokeObjectURL(url);
 }
 
-async function shareOrderCardToWhatsApp(items, total) {
-    const text = buildWhatsAppTextSummary(items, total);
-    const html = buildOrderCardHTML(items, total);
-    const imageBlob = await renderOrderCardImage(html);
-    const imageFile = new File([imageBlob], "bagspromax-order.png", { type: "image/png" });
+function buildContactFieldRow(label, value) {
+    if (!value) return "";
+
+    return `
+        <div style="padding:10px 12px;border:1px solid #E2E8F0;border-radius:10px;margin-bottom:8px;background:#FFFFFF;">
+            <div style="font-size:11px;font-weight:600;color:#64748B;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:4px;">${escapeHtml(label)}</div>
+            <div style="font-size:14px;color:#0F172A;font-weight:500;line-height:1.5;word-break:break-word;white-space:pre-wrap;">${escapeHtml(value)}</div>
+        </div>
+    `;
+}
+
+function buildContactTextSummary(contact) {
+    const brand = SITE_CONFIG.brand || "BAGSPROMAX";
+    const fullName = `${contact.firstName} ${contact.lastName}`.trim();
+    const lines = [
+        `Hello ${brand}!`,
+        "",
+        "I have a new contact request:",
+        "",
+        `Name: ${fullName}`,
+        `Email: ${contact.email}`,
+        `Phone: ${contact.phone}`
+    ];
+
+    if (contact.orderNumber) lines.push(`Order: ${contact.orderNumber}`);
+    lines.push("", "Message:", contact.message);
+
+    return lines.join("\n");
+}
+
+function buildContactCardHTML(contact) {
+    const brand = SITE_CONFIG.brand || "BAGSPROMAX";
+    const fullName = `${contact.firstName} ${contact.lastName}`.trim();
+
+    return `
+        <div style="width:380px;font-family:Inter,Arial,sans-serif;background:#F8FAFC;padding:20px;">
+            <div style="background:linear-gradient(135deg,#0F172A 0%,#1E293B 100%);color:#FFFFFF;padding:18px 16px;border-radius:14px 14px 0 0;text-align:center;">
+                <div style="font-size:11px;letter-spacing:1.5px;opacity:0.85;margin-bottom:4px;">CONTACT REQUEST</div>
+                <div style="font-size:22px;font-weight:800;letter-spacing:0.5px;">${escapeHtml(brand)}</div>
+            </div>
+            <div style="background:#FFFFFF;padding:16px;border:1px solid #E2E8F0;border-top:none;border-radius:0 0 14px 14px;box-shadow:0 8px 24px rgba(15,23,42,0.1);">
+                ${buildContactFieldRow("Full Name", fullName)}
+                ${buildContactFieldRow("Email", contact.email)}
+                ${buildContactFieldRow("Phone", contact.phone)}
+                ${buildContactFieldRow("Order Number", contact.orderNumber)}
+                ${buildContactFieldRow("Message", contact.message)}
+                <p style="font-size:11px;color:#94A3B8;text-align:center;margin:8px 0 0;line-height:1.5;">
+                    Sent via website contact form
+                </p>
+            </div>
+        </div>
+    `;
+}
+
+async function shareCardToWhatsApp({ html, text, filename, cardLabel = "Card" }) {
+    const imageBlob = await renderCardImage(html);
+    const imageFile = new File([imageBlob], filename, { type: "image/png" });
 
     if (navigator.canShare && navigator.canShare({ files: [imageFile] })) {
         await navigator.share({
@@ -168,15 +224,39 @@ async function shareOrderCardToWhatsApp(items, total) {
             await navigator.clipboard.write([
                 new ClipboardItem({ "image/png": imageBlob })
             ]);
-            openWhatsAppText(`${text}\n\nOrder card image copied — paste it in the chat (Ctrl+V).`);
+            openWhatsAppText(`${text}\n\n${cardLabel} image copied — paste it in the chat (Ctrl+V).`);
             return;
         } catch (error) {
             // Fall through to download fallback.
         }
     }
 
-    downloadBlob(imageBlob, "bagspromax-order.png");
-    openWhatsAppText(`${text}\n\nOrder card image downloaded — please attach bagspromax-order.png in the chat.`);
+    downloadBlob(imageBlob, filename);
+    openWhatsAppText(`${text}\n\n${cardLabel} image downloaded — please attach ${filename} in the chat.`);
+}
+
+async function shareContactToWhatsApp(contact) {
+    const text = buildContactTextSummary(contact);
+    const html = buildContactCardHTML(contact);
+
+    await shareCardToWhatsApp({
+        html,
+        text,
+        filename: "bagspromax-contact.png",
+        cardLabel: "Contact card"
+    });
+}
+
+async function shareOrderCardToWhatsApp(items, total) {
+    const text = buildWhatsAppTextSummary(items, total);
+    const html = buildOrderCardHTML(items, total);
+
+    await shareCardToWhatsApp({
+        html,
+        text,
+        filename: "bagspromax-order.png",
+        cardLabel: "Order card"
+    });
 }
 
 async function sendWhatsAppOrder() {

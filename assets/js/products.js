@@ -15,27 +15,103 @@ function getStockBadge(product) {
     return `<span class="product-badge stock ${product.badge.type}">${product.badge.text}</span>`;
 }
 
+function getSwatchColor(color) {
+    const colors = {
+        Black: "#1a1a1a",
+        Navy: "#1e3a5f",
+        Grey: "#94a3b8",
+        Tan: "#c4a574",
+        Olive: "#556b2f",
+        Brown: "#8b5a2b",
+        Natural: "#e8dcc8"
+    };
+    return colors[color] || "#cbd5e1";
+}
+
+function slugifyColor(color) {
+    return color.toLowerCase().replace(/\s+/g, "-");
+}
+
+function getProductImageForColor(product, color) {
+    if (product.colorImages && product.colorImages[color]) {
+        return product.colorImages[color];
+    }
+
+    const match = product.image.match(/^(.+)\.(jpg|jpeg|png|webp)$/i);
+    if (!match) return product.image;
+
+    return `${match[1]}-${slugifyColor(color)}.${match[2]}`;
+}
+
+function getColorRadios(product, soldOut) {
+    const groupName = `color-${product.id}`;
+
+    return product.colors.map(color => `
+        <label class="color-radio" title="${color}">
+            <input type="radio"
+                name="${groupName}"
+                value="${color}"
+                ${color === product.defaultColor ? "checked" : ""}
+                ${soldOut ? "disabled" : ""}
+                onchange="setProductColor(${product.id}, '${color}')"
+                aria-label="${color}">
+            <span class="color-radio-mark" style="--swatch-color: ${getSwatchColor(color)}"></span>
+        </label>
+    `).join("");
+}
+
+function setProductColor(id, color) {
+    const select = document.getElementById(`color-${id}`);
+    if (select) select.value = color;
+
+    const product = getProductById(id);
+    const image = document.getElementById(`product-image-${id}`);
+    if (!product || !image) return;
+
+    const nextImage = getProductImageForColor(product, color);
+    const fallbackImage = product.image;
+
+    image.classList.add("is-swapping");
+
+    const preview = new Image();
+    preview.onload = () => {
+        image.src = nextImage;
+        image.classList.remove("is-swapping");
+    };
+    preview.onerror = () => {
+        image.src = fallbackImage;
+        image.classList.remove("is-swapping");
+    };
+    preview.src = nextImage;
+}
+
 function createTrendingCard(product) {
     const promoBadge = product.badge && product.stock !== "low-stock" && product.stock !== "out-of-stock"
         ? `<span class="product-badge promo ${product.badge.type}">${product.badge.text}</span>`
         : "";
+    const soldOut = !isProductAvailable(product);
 
     return `
     <div class="col-lg-4 col-md-6">
-        <div class="product-card">
+        <div class="product-card ${soldOut ? "sold-out" : ""}">
             <div class="product-image-wrap">
                 <span class="product-badge category">${product.category}</span>
                 ${promoBadge}
                 ${getStockBadge(product)}
                 <img src="${product.image}" class="product-image" alt="${product.name}" loading="lazy">
+                <div class="product-image-overlay">
+                    <button type="button" class="product-overlay-btn" onclick="addToCart(${product.id}, '${product.defaultColor}', 1)" ${soldOut ? "disabled" : ""}>
+                        <i class="bi bi-bag-plus"></i> ${soldOut ? "Sold Out" : "Quick Add"}
+                    </button>
+                </div>
             </div>
             <div class="product-body">
                 <div class="product-info">
                     <h4 class="product-title">${product.name}</h4>
                     <span class="product-price">${formatPrice(product.price)}</span>
                 </div>
-                <button class="btn-add-cart" onclick="addToCart(${product.id}, '${product.defaultColor}', 1)" ${!isProductAvailable(product) ? "disabled" : ""}>
-                    ${isProductAvailable(product) ? "Add to Cart" : "Sold Out"}
+                <button class="btn-add-cart" onclick="addToCart(${product.id}, '${product.defaultColor}', 1)" ${soldOut ? "disabled" : ""}>
+                    ${soldOut ? "Sold Out" : "Add to Cart"}
                 </button>
             </div>
         </div>
@@ -55,7 +131,15 @@ function createCatalogCard(product) {
             <div class="product-image-wrap">
                 <span class="product-badge category">${product.category}</span>
                 ${getStockBadge(product)}
-                <img src="${product.image}" class="product-image" alt="${product.name}" loading="lazy">
+                <img src="${product.image}" id="product-image-${product.id}" class="product-image" alt="${product.name}" loading="lazy" data-default-image="${product.image}">
+                <div class="product-image-overlay">
+                    <button type="button" class="product-overlay-btn" onclick="addProductFromCard(${product.id})" ${soldOut ? "disabled" : ""}>
+                        <i class="bi bi-bag-plus"></i> ${soldOut ? "Sold Out" : "Quick Add"}
+                    </button>
+                </div>
+                <div class="product-brand-identity">
+                <img src="assets/images/icons/icons.svg" alt="brand" width="48" />
+ </div>
             </div>
             <div class="product-body">
                 <div class="product-info">
@@ -63,20 +147,26 @@ function createCatalogCard(product) {
                     <span class="product-price">${formatPrice(product.price)}</span>
                 </div>
                 <p class="product-description">${product.description}</p>
-                <label class="product-field-label" for="color-${product.id}">COLOR</label>
-                <select id="color-${product.id}" class="form-select product-color-select" ${soldOut ? "disabled" : ""}>
-                    ${colorOptions}
-                </select>
+                <div class="product-color-field">
+                    <span class="product-field-label">COLOR</span>
+                    <div class="color-radio-group" id="color-radios-${product.id}" role="radiogroup" aria-label="Select color for ${product.name}">
+                        ${getColorRadios(product, soldOut)}
+                    </div>
+                    <select id="color-${product.id}" class="form-select product-color-select visually-hidden" ${soldOut ? "disabled" : ""} tabindex="-1" aria-hidden="true">
+                        ${colorOptions}
+                    </select>
+                </div>
                 <div class="product-actions-row">
                     <div class="qty-control ${soldOut ? "disabled" : ""}">
-                        <button type="button" onclick="changeProductQty(${product.id}, -1)" ${soldOut ? "disabled" : ""}>-</button>
-                        <input type="text" id="qty-${product.id}" value="1" readonly ${soldOut ? "disabled" : ""}>
-                        <button type="button" onclick="changeProductQty(${product.id}, 1)" ${soldOut ? "disabled" : ""}>+</button>
+                        <button type="button" onclick="changeProductQty(${product.id}, -1)" ${soldOut ? "disabled" : ""} aria-label="Decrease quantity">-</button>
+                        <input type="text" id="qty-${product.id}" value="1" readonly ${soldOut ? "disabled" : ""} aria-label="Quantity">
+                        <button type="button" onclick="changeProductQty(${product.id}, 1)" ${soldOut ? "disabled" : ""} aria-label="Increase quantity">+</button>
                     </div>
                     <button class="btn-add-cart catalog-add-btn" onclick="addProductFromCard(${product.id})" ${soldOut ? "disabled" : ""}>
-                        ${soldOut ? "Sold Out" : "Add to Cart"}
+                        <i class="bi bi-bag-plus me-1"></i>${soldOut ? "Sold Out" : "Add to Cart"}
                     </button>
                 </div>
+                
             </div>
         </div>
     </div>`;
@@ -170,9 +260,15 @@ function initProductsPage() {
     renderAllProducts();
 }
 
+function initProductViews() {
+    renderTrendingProducts();
+    initProductsPage();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    dataReady.then(() => {
-        renderTrendingProducts();
-        initProductsPage();
+    dataReady.then(initProductViews).catch(error => {
+        console.error("Failed to load products:", error);
+        initProductViews();
     });
 });
+

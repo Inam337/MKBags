@@ -49,41 +49,58 @@ function initLoader() {
     const loader = document.getElementById("loader");
     if (!loader) return;
 
-    window.addEventListener("load", () => {
-        loader.classList.add("hidden");
-    });
+    const hideLoader = () => loader.classList.add("hidden");
+
+    if (document.readyState === "complete") {
+        hideLoader();
+        return;
+    }
+
+    window.addEventListener("load", hideLoader, { once: true });
 }
 
 function initContactForm() {
     const form = document.getElementById("contactForm");
     if (!form) return;
 
-    form.addEventListener("submit", e => {
+    form.addEventListener("submit", async e => {
         e.preventDefault();
 
-        const firstName = form.querySelector("#firstName").value.trim();
-        const lastName = form.querySelector("#lastName").value.trim();
-        const email = form.querySelector("#contactEmail").value.trim();
-        const phone = form.querySelector("#contactPhone").value.trim();
-        const orderNumber = form.querySelector("#orderNumber").value.trim();
-        const message = form.querySelector("#contactMessage").value.trim();
+        const contact = {
+            firstName: form.querySelector("#firstName").value.trim(),
+            lastName: form.querySelector("#lastName").value.trim(),
+            email: form.querySelector("#contactEmail").value.trim(),
+            phone: form.querySelector("#contactPhone").value.trim(),
+            orderNumber: form.querySelector("#orderNumber").value.trim(),
+            message: form.querySelector("#contactMessage").value.trim()
+        };
 
-        let text = `Hello BagsProMax,%0A%0AName: ${firstName} ${lastName}%0AEmail: ${email}%0APhone: ${phone}`;
-        if (orderNumber) text += `%0AOrder: ${orderNumber}`;
-        text += `%0A%0AMessage:%0A${message}`;
-
-        window.open(`https://wa.me/${SITE_CONFIG.whatsapp}?text=${text}`, "_blank");
-        form.reset();
+        try {
+            await shareContactToWhatsApp(contact);
+            form.reset();
+        } catch (error) {
+            console.error(error);
+            openWhatsAppText(buildContactTextSummary(contact));
+            form.reset();
+        }
     });
 }
 
+function initApp() {
+    updateCartUI();
+    setActiveNavLink();
+    initTopBar();
+    initBackToTop();
+    initContactForm();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    dataReady.then(() => {
-        updateCartUI();
-        setActiveNavLink();
-        initTopBar();
-        initBackToTop();
-        initLoader();
-        initContactForm();
-    });
+    initLoader();
+
+    dataReady
+        .then(initApp)
+        .catch(error => {
+            console.error("Failed to load site data:", error);
+            initApp();
+        });
 });

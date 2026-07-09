@@ -59,6 +59,14 @@ RESPONSIVE CSS — BagsProMax
     .cart-offcanvas {
         width: 100% !important;
     }
+
+    .legal-toc-sticky {
+        position: static;
+    }
+
+    .legal-toc-card {
+        margin-bottom: 8px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -90,7 +98,8 @@ RESPONSIVE CSS — BagsProMax
     .section-title,
     .products-page-header h1,
     .about-hero h1,
-    .contact-hero h1 {
+    .contact-hero h1,
+    .legal-hero h1 {
         font-size: 32px;
     }
 
@@ -127,6 +136,22 @@ RESPONSIVE CSS — BagsProMax
         font-size: 34px;
     }
 
+    .legal-hero {
+        padding: 56px 0 48px;
+    }
+
+    .legal-hero h1 {
+        font-size: 32px;
+    }
+
+    .legal-section {
+        padding: 48px 0 60px;
+    }
+
+    .legal-card {
+        padding: 24px 20px;
+    }
+
     .about-stats {
         flex-direction: column;
         gap: 20px;
@@ -147,11 +172,17 @@ RESPONSIVE CSS — BagsProMax
     }
 
     .product-image-wrap {
-        min-height: 200px;
+        aspect-ratio: 1 / 1;
     }
 
-    .product-image {
-        height: 160px;
+    .product-image-overlay {
+        opacity: 1;
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0) 55%, rgba(15, 23, 42, 0.35) 100%);
+    }
+
+    .product-overlay-btn {
+        transform: translateY(0);
+        max-width: none;
     }
 
     .mission-card,

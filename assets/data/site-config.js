@@ -1,4 +1,4 @@
-{
+window.MKBAGS_SITE_CONFIG = {
     "brand": "MK Bags",
     "currency": "USD",
     "currencySymbol": "$",
@@ -10,4 +10,4 @@
     "hours": "Mon-Fri, 9am - 6pm PST",
     "freeShippingMin": 150,
     "topBarText": "FREE GLOBAL SHIPPING ON ORDERS OVER $150"
-}
+};

@@ -18,15 +18,37 @@ RESPONSIVE CSS — BagsProMax
 
 @media (max-width: 991px) {
     .navbar-collapse {
-        padding: 16px 0;
+        margin-top: 12px;
+        padding: 20px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-md);
     }
 
     .navbar-nav {
-        margin-bottom: 16px;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+        gap: 4px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px 16px !important;
+        border-radius: var(--radius-sm);
+        font-weight: 600;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        background: var(--surface);
+        color: var(--primary) !important;
     }
 
     .navbar-actions {
-        padding-bottom: 8px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        justify-content: center;
     }
 
     .hero-section,

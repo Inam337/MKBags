@@ -179,6 +179,89 @@ NAVBAR
     line-height: 1;
 }
 
+.navbar-toggler {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar-toggler:hover {
+    background: var(--surface);
+    border-color: var(--primary);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(84, 65, 59, 0.15);
+}
+
+.navbar-toggler-icon {
+    width: 22px;
+    height: 2px;
+    background-color: var(--navy) !important;
+    background-image: none !important;
+    border-radius: 2px;
+    position: relative;
+    transition: background-color var(--transition);
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: transform var(--transition), top var(--transition), background-color var(--transition);
+}
+
+.navbar-toggler-icon::before {
+    top: -7px;
+}
+
+.navbar-toggler-icon::after {
+    top: 7px;
+}
+
+.navbar-toggler:hover .navbar-toggler-icon,
+.navbar-toggler:hover .navbar-toggler-icon::before,
+.navbar-toggler:hover .navbar-toggler-icon::after {
+    background: var(--primary);
+}
+
+.navbar-toggler[aria-expanded="true"] {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent !important;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before,
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    background: var(--white);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
 /*=========================================================
 BUTTONS
 =========================================================*/
@@ -1055,6 +1138,19 @@ PRODUCTS PAGE
     margin-bottom: 12px;
 }
 
+.trending-card .product-color-field {
+    margin: 8px 0 12px;
+}
+
+.trending-card .color-radio-mark {
+    width: 26px;
+    height: 26px;
+}
+
+.trending-card .color-radio-group {
+    gap: 6px;
+}
+
 .product-field-label {
     display: block;
     font-size: 11px;
@@ -1788,7 +1884,7 @@ LEGAL PAGES
 }
 
 .legal-hero-points i {
-    color: var(--primary);
+    color: var(--white);
 }
 
 .legal-section {

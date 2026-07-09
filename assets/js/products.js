@@ -90,17 +90,20 @@ function createTrendingCard(product) {
         ? `<span class="product-badge promo ${product.badge.type}">${product.badge.text}</span>`
         : "";
     const soldOut = !isProductAvailable(product);
+    const colorOptions = product.colors.map(c =>
+        `<option value="${c}" ${c === product.defaultColor ? "selected" : ""}>${c}</option>`
+    ).join("");
 
     return `
     <div class="col-lg-4 col-md-6">
-        <div class="product-card ${soldOut ? "sold-out" : ""}">
+        <div class="product-card trending-card ${soldOut ? "sold-out" : ""}">
             <div class="product-image-wrap">
                 <span class="product-badge category">${product.category}</span>
                 ${promoBadge}
                 ${getStockBadge(product)}
-                <img src="${product.image}" class="product-image" alt="${product.name}" loading="lazy">
+                <img src="${product.image}" id="product-image-${product.id}" class="product-image" alt="${product.name}" loading="lazy" data-default-image="${product.image}">
                 <div class="product-image-overlay">
-                    <button type="button" class="product-overlay-btn" onclick="addToCart(${product.id}, '${product.defaultColor}', 1)" ${soldOut ? "disabled" : ""}>
+                    <button type="button" class="product-overlay-btn" onclick="addProductFromCard(${product.id})" ${soldOut ? "disabled" : ""}>
                         <i class="bi bi-bag-plus"></i> ${soldOut ? "Sold Out" : "Quick Add"}
                     </button>
                 </div>
@@ -110,7 +113,15 @@ function createTrendingCard(product) {
                     <h4 class="product-title">${product.name}</h4>
                     <span class="product-price">${formatPrice(product.price)}</span>
                 </div>
-                <button class="btn-add-cart" onclick="addToCart(${product.id}, '${product.defaultColor}', 1)" ${soldOut ? "disabled" : ""}>
+                <div class="product-color-field">
+                    <div class="color-radio-group" id="color-radios-${product.id}" role="radiogroup" aria-label="Select color for ${product.name}">
+                        ${getColorRadios(product, soldOut)}
+                    </div>
+                    <select id="color-${product.id}" class="form-select product-color-select visually-hidden" ${soldOut ? "disabled" : ""} tabindex="-1" aria-hidden="true">
+                        ${colorOptions}
+                    </select>
+                </div>
+                <button class="btn-add-cart" onclick="addProductFromCard(${product.id})" ${soldOut ? "disabled" : ""}>
                     ${soldOut ? "Sold Out" : "Add to Cart"}
                 </button>
             </div>

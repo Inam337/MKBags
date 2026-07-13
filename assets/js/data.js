@@ -76,7 +76,7 @@ const dataReady = Promise.all([
 });
 
 function formatPrice(price) {
-    const symbol = SITE_CONFIG.currencySymbol || "$";
+    const symbol = SITE_CONFIG.currencySymbol || "PKR ";
     return symbol + price;
 }
 

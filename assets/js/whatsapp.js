@@ -18,12 +18,38 @@ function escapeHtml(value) {
 
 function getAbsoluteImageUrl(imagePath) {
     if (!imagePath) return "";
-    if (imagePath.startsWith("http")) return imagePath;
+    if (imagePath.startsWith("http") || imagePath.startsWith("data:")) return imagePath;
     return new URL(imagePath, window.location.href).href;
 }
 
+function getBrandLogoUrl() {
+    return getAbsoluteImageUrl("assets/images/icons/logo.png");
+}
+
+function getCartItemImage(item) {
+    const product = typeof getProductById === "function" ? getProductById(item.id) : null;
+    if (product && typeof getProductImageForColor === "function" && item.color) {
+        return getProductImageForColor(product, item.color);
+    }
+    return item.image || (product ? product.image : "");
+}
+
+function buildCardHeader(label) {
+    const brand = SITE_CONFIG.brand || "MK Imported Bags";
+    const logoUrl = getBrandLogoUrl();
+
+    return `
+        <div style="background:#FFFFFF;padding:20px 18px 16px;border-radius:16px 16px 0 0;text-align:center;border:1px solid #E2E8F0;border-bottom:none;">
+            <img src="${logoUrl}" alt="${escapeHtml(brand)}" crossorigin="anonymous"
+                style="height:48px;width:auto;max-width:220px;object-fit:contain;display:block;margin:0 auto 12px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;color:#54413B;text-transform:uppercase;margin-bottom:4px;">${escapeHtml(label)}</div>
+            <div style="font-size:18px;font-weight:800;color:#0F172A;letter-spacing:-0.2px;">${escapeHtml(brand)}</div>
+        </div>
+    `;
+}
+
 function buildWhatsAppTextSummary(items, total) {
-    const brand = SITE_CONFIG.brand || "BAGSPROMAX";
+    const brand = SITE_CONFIG.brand || "MK Imported Bags";
     const lines = [
         `Hello! I would like to checkout from *${brand}*:`,
         ""
@@ -41,39 +67,43 @@ function buildWhatsAppTextSummary(items, total) {
 }
 
 function buildOrderCardHTML(items, total) {
-    const brand = SITE_CONFIG.brand || "BAGSPROMAX";
-    const itemCount = items.reduce((sum, item) => sum + item.qty, 0);
+    const itemCount = items.reduce((sum, item) => sum + Number(item.qty || 0), 0);
 
-    const itemCards = items.map(item => `
+    const itemCards = items.map((item, index) => `
         <div style="display:flex;align-items:center;gap:12px;padding:12px;border:1px solid #E2E8F0;border-radius:12px;margin-bottom:10px;background:#FFFFFF;">
-            <img src="${getAbsoluteImageUrl(item.image)}" alt="${escapeHtml(item.name)}" crossorigin="anonymous"
-                style="width:72px;height:72px;object-fit:cover;border-radius:8px;flex-shrink:0;background:#F1F5F9;">
+            <div style="width:26px;height:26px;border-radius:50%;background:#54413B;color:#FFFFFF;font-size:12px;font-weight:700;line-height:26px;text-align:center;flex-shrink:0;">
+                ${index + 1}
+            </div>
+            <img src="${getAbsoluteImageUrl(getCartItemImage(item))}" alt="${escapeHtml(item.name)}" crossorigin="anonymous"
+                style="width:76px;height:76px;object-fit:cover;border-radius:10px;flex-shrink:0;background:#F8FAFC;border:1px solid #E2E8F0;">
             <div style="flex:1;min-width:0;">
-                <div style="font-weight:700;font-size:14px;color:#0F172A;margin-bottom:4px;line-height:1.3;">${escapeHtml(item.name)}</div>
-                <div style="font-size:12px;color:#64748B;margin-bottom:2px;">Color: <span style="color:#0F172A;font-weight:600;">${escapeHtml(item.color)}</span></div>
-                <div style="font-size:12px;color:#64748B;">Qty: ${item.qty} &times; ${formatPrice(item.price)}</div>
-                <div style="font-weight:700;font-size:15px;color:#2563EB;margin-top:6px;">${formatPrice(item.price * item.qty)}</div>
+                <div style="font-weight:700;font-size:14px;color:#0F172A;margin-bottom:6px;line-height:1.35;">${escapeHtml(item.name)}</div>
+                <div style="font-size:12px;color:#64748B;margin-bottom:3px;">Color: <span style="color:#333438;font-weight:600;">${escapeHtml(item.color || "Default")}</span></div>
+                <div style="font-size:12px;color:#64748B;margin-bottom:6px;">Qty: <span style="color:#333438;font-weight:600;">${item.qty}</span> &times; ${formatPrice(item.price)}</div>
+                <div style="font-weight:800;font-size:15px;color:#54413B;">${formatPrice(item.price * item.qty)}</div>
             </div>
         </div>
     `).join("");
 
     return `
-        <div style="width:380px;font-family:Inter,Arial,sans-serif;background:#F8FAFC;padding:20px;">
-            <div style="background:linear-gradient(135deg,#0F172A 0%,#1E293B 100%);color:#FFFFFF;padding:18px 16px;border-radius:14px 14px 0 0;text-align:center;">
-                <div style="font-size:11px;letter-spacing:1.5px;opacity:0.85;margin-bottom:4px;">ORDER REQUEST</div>
-                <div style="font-size:22px;font-weight:800;letter-spacing:0.5px;">${escapeHtml(brand)}</div>
-            </div>
-            <div style="background:#FFFFFF;padding:16px;border:1px solid #E2E8F0;border-top:none;border-radius:0 0 14px 14px;box-shadow:0 8px 24px rgba(15,23,42,0.1);">
-                <div style="font-size:12px;font-weight:600;color:#64748B;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px;">
-                    ${itemCount} item${itemCount === 1 ? "" : "s"} in cart
+        <div style="width:400px;font-family:Inter,Arial,sans-serif;background:#F8FAFC;padding:18px;">
+            ${buildCardHeader("Order Request")}
+            <div style="background:#FFFFFF;padding:16px;border:1px solid #E2E8F0;border-top:3px solid #54413B;border-radius:0 0 16px 16px;box-shadow:0 8px 24px rgba(15,23,42,0.08);">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+                    <div style="font-size:12px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:0.8px;">
+                        Selected Products
+                    </div>
+                    <div style="font-size:12px;font-weight:700;color:#54413B;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:999px;padding:4px 10px;">
+                        ${itemCount} item${itemCount === 1 ? "" : "s"}
+                    </div>
                 </div>
                 ${itemCards}
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;margin-top:4px;">
-                    <span style="font-size:14px;font-weight:600;color:#0F172A;">Subtotal</span>
-                    <span style="font-size:20px;font-weight:800;color:#2563EB;">${formatPrice(total)}</span>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#0F172A;border-radius:12px;margin-top:6px;">
+                    <span style="font-size:14px;font-weight:600;color:#FFFFFF;">Subtotal</span>
+                    <span style="font-size:20px;font-weight:800;color:#FFFFFF;">${formatPrice(total)}</span>
                 </div>
                 <p style="font-size:11px;color:#94A3B8;text-align:center;margin:14px 0 0;line-height:1.5;">
-                    Shipping &amp; taxes calculated at checkout
+                    Cash on delivery available &bull; Nationwide shipping in Pakistan
                 </p>
             </div>
         </div>
@@ -128,8 +158,10 @@ async function renderCardImage(html) {
     const canvas = await html2canvas(card, {
         scale: 2,
         useCORS: true,
+        allowTaint: false,
         backgroundColor: "#F8FAFC",
-        logging: false
+        logging: false,
+        imageTimeout: 8000
     });
 
     return new Promise(resolve => canvas.toBlob(resolve, "image/png", 0.95));
@@ -157,15 +189,15 @@ function buildContactFieldRow(label, value) {
     if (!value) return "";
 
     return `
-        <div style="padding:10px 12px;border:1px solid #E2E8F0;border-radius:10px;margin-bottom:8px;background:#FFFFFF;">
-            <div style="font-size:11px;font-weight:600;color:#64748B;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:4px;">${escapeHtml(label)}</div>
-            <div style="font-size:14px;color:#0F172A;font-weight:500;line-height:1.5;word-break:break-word;white-space:pre-wrap;">${escapeHtml(value)}</div>
+        <div style="padding:12px 14px;border:1px solid #E2E8F0;border-radius:12px;margin-bottom:10px;background:#F8FAFC;">
+            <div style="font-size:11px;font-weight:700;color:#54413B;text-transform:uppercase;letter-spacing:0.7px;margin-bottom:5px;">${escapeHtml(label)}</div>
+            <div style="font-size:14px;color:#0F172A;font-weight:600;line-height:1.5;word-break:break-word;white-space:pre-wrap;">${escapeHtml(value)}</div>
         </div>
     `;
 }
 
 function buildContactTextSummary(contact) {
-    const brand = SITE_CONFIG.brand || "BAGSPROMAX";
+    const brand = SITE_CONFIG.brand || "MK Imported Bags";
     const fullName = `${contact.firstName} ${contact.lastName}`.trim();
     const lines = [
         `Hello ${brand}!`,
@@ -184,23 +216,22 @@ function buildContactTextSummary(contact) {
 }
 
 function buildContactCardHTML(contact) {
-    const brand = SITE_CONFIG.brand || "BAGSPROMAX";
-    const fullName = `${contact.firstName} ${contact.lastName}`.trim();
+    const fullName = `${contact.firstName || ""} ${contact.lastName || ""}`.trim();
 
     return `
-        <div style="width:380px;font-family:Inter,Arial,sans-serif;background:#F8FAFC;padding:20px;">
-            <div style="background:linear-gradient(135deg,#0F172A 0%,#1E293B 100%);color:#FFFFFF;padding:18px 16px;border-radius:14px 14px 0 0;text-align:center;">
-                <div style="font-size:11px;letter-spacing:1.5px;opacity:0.85;margin-bottom:4px;">CONTACT REQUEST</div>
-                <div style="font-size:22px;font-weight:800;letter-spacing:0.5px;">${escapeHtml(brand)}</div>
-            </div>
-            <div style="background:#FFFFFF;padding:16px;border:1px solid #E2E8F0;border-top:none;border-radius:0 0 14px 14px;box-shadow:0 8px 24px rgba(15,23,42,0.1);">
+        <div style="width:400px;font-family:Inter,Arial,sans-serif;background:#F8FAFC;padding:18px;">
+            ${buildCardHeader("Contact Request")}
+            <div style="background:#FFFFFF;padding:16px;border:1px solid #E2E8F0;border-top:3px solid #54413B;border-radius:0 0 16px 16px;box-shadow:0 8px 24px rgba(15,23,42,0.08);">
+                <div style="font-size:12px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px;">
+                    Customer Details
+                </div>
                 ${buildContactFieldRow("Full Name", fullName)}
                 ${buildContactFieldRow("Email", contact.email)}
                 ${buildContactFieldRow("Phone", contact.phone)}
                 ${buildContactFieldRow("Order Number", contact.orderNumber)}
                 ${buildContactFieldRow("Message", contact.message)}
                 <p style="font-size:11px;color:#94A3B8;text-align:center;margin:8px 0 0;line-height:1.5;">
-                    Sent via website contact form
+                    Sent via MK Imported Bags website contact form
                 </p>
             </div>
         </div>
@@ -242,7 +273,7 @@ async function shareContactToWhatsApp(contact) {
     await shareCardToWhatsApp({
         html,
         text,
-        filename: "bagspromax-contact.png",
+        filename: "mkimportedbags-contact.png",
         cardLabel: "Contact card"
     });
 }
@@ -254,7 +285,7 @@ async function shareOrderCardToWhatsApp(items, total) {
     await shareCardToWhatsApp({
         html,
         text,
-        filename: "bagspromax-order.png",
+        filename: "mkimportedbags-order.png",
         cardLabel: "Order card"
     });
 }
@@ -283,11 +314,14 @@ async function buyOnWhatsApp(id) {
     const qty = qtyInput ? Math.max(1, parseInt(qtyInput.value, 10) || 1) : 1;
 
     const item = {
+        id: product.id,
         name: product.name,
         color,
         qty,
         price: product.price,
-        image: product.image
+        image: typeof getProductImageForColor === "function"
+            ? getProductImageForColor(product, color)
+            : product.image
     };
 
     try {

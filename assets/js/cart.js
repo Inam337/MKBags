@@ -27,12 +27,19 @@ function addToCart(id, color, qty) {
 
     if (existing) {
         existing.qty += quantity;
+        if (typeof getProductImageForColor === "function") {
+            existing.image = getProductImageForColor(product, selectedColor);
+        }
     } else {
+        const image = typeof getProductImageForColor === "function"
+            ? getProductImageForColor(product, selectedColor)
+            : product.image;
+
         cart.push({
             id: product.id,
             name: product.name,
             price: product.price,
-            image: product.image,
+            image,
             color: selectedColor,
             qty: quantity
         });

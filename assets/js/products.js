@@ -170,6 +170,9 @@ function createTrendingCard(product) {
                         <i class="bi bi-bag-plus"></i> ${soldOut ? "Sold Out" : "Quick Add"}
                     </button>
                 </div>
+                 <div class="product-brand-identity">
+                    <img src="assets/images/icons/icons.svg" alt="brand" width="48" />
+                </div>
             </div>
             <div class="product-body">
                 <div class="product-info">
@@ -264,14 +267,50 @@ function renderTrendingProducts() {
 }
 
 function getFilteredProducts() {
+    const keyword = (searchKeyword || "").trim().toLowerCase();
+
     return sortProducts(ALL_PRODUCTS.filter(product => {
-        const matchesCategory = selectedCategory === "all" || product.filterCategory === selectedCategory;
-        const matchesSearch = product.name.toLowerCase().includes(searchKeyword) ||
-            product.description.toLowerCase().includes(searchKeyword) ||
-            product.filterCategory.toLowerCase().includes(searchKeyword) ||
-            product.category.toLowerCase().includes(searchKeyword);
-        return matchesCategory && matchesSearch;
+        const filterCategory = String(product.filterCategory || "").trim();
+        const matchesCategory = selectedCategory === "all" || filterCategory === selectedCategory;
+
+        if (!matchesCategory) return false;
+        if (!keyword) return true;
+
+        const haystack = [
+            product.name,
+            product.description,
+            product.category,
+            product.filterCategory,
+            product.type,
+            ...(Array.isArray(product.colors) ? product.colors : [])
+        ]
+            .filter(Boolean)
+            .join(" ")
+            .toLowerCase();
+
+        return haystack.includes(keyword);
     }));
+}
+
+function populateCategoryFilter() {
+    const categoryFilter = document.getElementById("categoryFilter");
+    if (!categoryFilter) return;
+
+    const currentValue = categoryFilter.value || selectedCategory || "all";
+    const categories = [...new Set(
+        ALL_PRODUCTS
+            .map(product => String(product.filterCategory || "").trim())
+            .filter(Boolean)
+    )].sort((a, b) => a.localeCompare(b));
+
+    categoryFilter.innerHTML = `<option value="all">All Categories</option>` +
+        categories.map(category =>
+            `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`
+        ).join("");
+
+    const hasCurrent = [...categoryFilter.options].some(option => option.value === currentValue);
+    categoryFilter.value = hasCurrent ? currentValue : "all";
+    selectedCategory = categoryFilter.value;
 }
 
 function renderAllProducts() {
@@ -303,6 +342,8 @@ function initProductsPage() {
     const searchInput = document.getElementById("searchProduct");
     const categoryFilter = document.getElementById("categoryFilter");
     const sortFilter = document.getElementById("sortFilter");
+
+    populateCategoryFilter();
 
     if (searchInput) {
         searchInput.addEventListener("input", e => {

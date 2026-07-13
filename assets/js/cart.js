@@ -16,6 +16,17 @@ function getCartKey(id, color) {
     return `${id}-${color}`;
 }
 
+function getCartItemImage(item) {
+    const product = typeof getProductById === "function" ? getProductById(item.id) : null;
+    if (!product) return item.image || "";
+
+    if (typeof getProductImageForColor === "function") {
+        return getProductImageForColor(product, item.color) || product.image;
+    }
+
+    return product.image || item.image || "";
+}
+
 function addToCart(id, color, qty) {
     const product = getProductById(id);
     if (!product || !isProductAvailable(product)) return;
@@ -24,17 +35,14 @@ function addToCart(id, color, qty) {
     const quantity = Math.max(1, Number(qty) || 1);
     const key = getCartKey(product.id, selectedColor);
     const existing = cart.find(item => getCartKey(item.id, item.color) === key);
+    const image = getCartItemImage({ id: product.id, color: selectedColor, image: product.image });
 
     if (existing) {
         existing.qty += quantity;
-        if (typeof getProductImageForColor === "function") {
-            existing.image = getProductImageForColor(product, selectedColor);
-        }
+        existing.image = image;
+        existing.name = product.name;
+        existing.price = product.price;
     } else {
-        const image = typeof getProductImageForColor === "function"
-            ? getProductImageForColor(product, selectedColor)
-            : product.image;
-
         cart.push({
             id: product.id,
             name: product.name,
@@ -118,30 +126,52 @@ function updateCartUI() {
 
     if (cartFooter) cartFooter.classList.remove("d-none");
 
-    cartItems.innerHTML = cart.map(item => `
+    cartItems.innerHTML = cart.map(item => {
+        const product = typeof getProductById === "function" ? getProductById(item.id) : null;
+        const image = getCartItemImage(item);
+        const fallbackImage = (product && product.image) || item.image || "";
+        const safeColor = String(item.color || "").replace(/'/g, "\\'");
+
+        return `
         <div class="cart-drawer-item">
-            <img src="${item.image}" alt="${item.name}" class="cart-drawer-thumb">
+            <img src="${image}"
+                alt="${item.name}"
+                class="cart-drawer-thumb product-image"
+                loading="lazy"
+                data-default-image="${fallbackImage}"
+                onerror="this.onerror=null;this.src=this.dataset.defaultImage||'';">
             <div class="cart-drawer-details">
                 <div class="cart-drawer-top">
                     <div>
                         <h6>${item.name}</h6>
                         <span class="cart-drawer-color">Color: ${item.color}</span>
                     </div>
-                    <button type="button" class="cart-remove-btn" onclick="removeFromCart(${item.id}, '${item.color}')" aria-label="Remove item">
+                    <button type="button" class="cart-remove-btn" onclick="removeFromCart(${item.id}, '${safeColor}')" aria-label="Remove item">
                         <i class="bi bi-trash"></i>
                     </button>
                 </div>
                 <div class="cart-drawer-bottom">
                     <div class="qty-control">
-                        <button type="button" onclick="updateCartQty(${item.id}, '${item.color}', -1)">-</button>
+                        <button type="button" onclick="updateCartQty(${item.id}, '${safeColor}', -1)">-</button>
                         <span>${item.qty}</span>
-                        <button type="button" onclick="updateCartQty(${item.id}, '${item.color}', 1)">+</button>
+                        <button type="button" onclick="updateCartQty(${item.id}, '${safeColor}', 1)">+</button>
                     </div>
                     <span class="cart-drawer-price">${formatPrice(item.price)}</span>
                 </div>
             </div>
-        </div>
-    `).join("");
+        </div>`;
+    }).join("");
+
+    // Keep stored cart images in sync with catalog product images.
+    let cartNeedsSave = false;
+    cart.forEach(item => {
+        const resolved = getCartItemImage(item);
+        if (resolved && item.image !== resolved) {
+            item.image = resolved;
+            cartNeedsSave = true;
+        }
+    });
+    if (cartNeedsSave) saveCart();
 }
 
 function getProductQty(id) {

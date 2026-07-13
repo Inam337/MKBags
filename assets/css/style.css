@@ -1526,11 +1526,12 @@ CART DRAWER (SCREENSHOT)
 .cart-drawer-thumb {
     width: 72px;
     height: 72px;
-    object-fit: contain;
+    object-fit: cover;
     background: var(--surface);
     border-radius: var(--radius-sm);
-    padding: 6px;
+    padding: 0;
     flex-shrink: 0;
+    display: block;
 }
 
 .cart-drawer-details {

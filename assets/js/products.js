@@ -20,14 +20,13 @@ function slugifyColor(color) {
 }
 
 function getProductImageForColor(product, color) {
-    if (product.colorImages && product.colorImages[color]) {
+    if (!product || !product.image) return "";
+
+    if (color && product.colorImages && product.colorImages[color]) {
         return product.colorImages[color];
     }
 
-    const match = product.image.match(/^(.+)\.(jpg|jpeg|png|webp)$/i);
-    if (!match) return product.image;
-
-    return `${match[1]}-${slugifyColor(color)}.${match[2]}`;
+    return product.image;
 }
 
 function getPriceBlock(product) {

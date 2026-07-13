@@ -26,14 +26,6 @@ function getBrandLogoUrl() {
     return getAbsoluteImageUrl("assets/images/icons/logo.png");
 }
 
-function getCartItemImage(item) {
-    const product = typeof getProductById === "function" ? getProductById(item.id) : null;
-    if (product && typeof getProductImageForColor === "function" && item.color) {
-        return getProductImageForColor(product, item.color);
-    }
-    return item.image || (product ? product.image : "");
-}
-
 function buildCardHeader(label) {
     const brand = SITE_CONFIG.brand || "MK Imported Bags";
     const logoUrl = getBrandLogoUrl();

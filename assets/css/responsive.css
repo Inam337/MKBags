@@ -154,7 +154,7 @@ RESPONSIVE CSS — BagsProMax
     .about-hero h1,
     .contact-hero h1,
     .legal-hero h1 {
-        font-size: 32px;
+        font-size: 22px;
     }
 
     .feature-item {
@@ -179,6 +179,8 @@ RESPONSIVE CSS — BagsProMax
 
     .qty-control {
         justify-content: center;
+        width: 120px;
+        cursor: pointer;
     }
 
     .contact-form-side,

@@ -154,6 +154,26 @@ NAVBAR
     object-fit: contain;
 }
 
+.logo-img-desktop {
+    display: block;
+}
+
+.logo-img-mobile {
+    display: none;
+    height: 40px;
+    max-width: 140px;
+}
+
+@media (max-width: 991px) {
+    .logo-img-desktop {
+        display: none;
+    }
+
+    .logo-img-mobile {
+        display: block;
+    }
+}
+
 .footer-logo {
     height: 40px;
     width: auto;
@@ -786,7 +806,7 @@ FOOTER
 .footer {
     background: var(--brown-dark);
     color: rgba(255, 255, 255, 0.7);
-    padding: 64px 0 0;
+    padding:36px 0 0;
 }
 
 .footer-brand {
@@ -1186,7 +1206,7 @@ PRODUCTS PAGE
 =========================================================*/
 
 .products-page-header {
-    padding:40px;
+    padding:24px;
     background: var(--brown);
     background-size:  50% 50%;
     color: var(--white);
@@ -2212,7 +2232,7 @@ SEO CONTENT SECTIONS
 .seo-categories-section,
 .seo-reviews-section,
 .seo-faq-section {
-    padding: 72px 0;
+    padding: 40px 0;
 }
 
 .seo-categories-section {

@@ -1223,7 +1223,6 @@ PRODUCTS PAGE
 .products-page-header p {
     color: var(--white);
     font-size: 16px;
-    max-width: 640px;
     margin: 0;
 }
 

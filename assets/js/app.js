@@ -32,6 +32,26 @@ function initTopBar() {
     }
 }
 
+function initHeroSwiper() {
+    const heroSwiperEl = document.querySelector(".hero-swiper");
+    if (!heroSwiperEl || typeof Swiper === "undefined") return;
+
+    new Swiper(".hero-swiper", {
+        effect: "fade",
+        fadeEffect: { crossFade: true },
+        loop: true,
+        speed: 900,
+        autoplay: {
+            delay: 5500,
+            disableOnInteraction: false
+        },
+        pagination: {
+            el: ".hero-pagination",
+            clickable: true
+        }
+    });
+}
+
 function initBackToTop() {
     const backToTop = document.getElementById("backToTop");
     if (!backToTop) return;
@@ -90,6 +110,7 @@ function initApp() {
     updateCartUI();
     setActiveNavLink();
     initTopBar();
+    initHeroSwiper();
     initBackToTop();
     initContactForm();
 }

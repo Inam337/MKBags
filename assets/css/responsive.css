@@ -80,6 +80,8 @@ RESPONSIVE CSS — BagsProMax
     }
 
     .hero-section,
+    .hero-swiper,
+    .hero-swiper .swiper-slide,
     .min-vh-hero {
         min-height: 480px;
     }
@@ -121,6 +123,8 @@ RESPONSIVE CSS — BagsProMax
 
 @media (max-width: 767px) {
     .hero-section,
+    .hero-swiper,
+    .hero-swiper .swiper-slide,
     .min-vh-hero {
         min-height: 420px;
     }

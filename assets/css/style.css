@@ -412,14 +412,87 @@ HERO
 
 .hero-section {
     position: relative;
-    background: url('../images/hero/hero-bg.jpg') center/cover no-repeat;
     min-height: 560px;
+    overflow: hidden;
+}
+
+.hero-swiper,
+.hero-swiper .swiper-slide {
+    min-height: 560px;
+}
+
+.hero-slide {
+    position: relative;
+    background: center/cover no-repeat;
+    display: flex;
+    align-items: center;
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
+    z-index: 1;
     background: linear-gradient(90deg, rgba(15, 23, 42, 0.82) 0%, rgba(15, 23, 42, 0.45) 55%, rgba(15, 23, 42, 0.15) 100%);
+}
+
+.hero-slide .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.hero-pagination {
+    bottom: 28px !important;
+    z-index: 3;
+}
+
+.hero-pagination .swiper-pagination-bullet {
+    width: 40px;
+    height: 8px;
+    border-radius: 0px;
+    background: rgba(255, 255, 255, 0.45);
+    opacity: 1;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.hero-pagination.swiper-pagination{
+    text-align: right;
+}
+.hero-pagination .swiper-pagination-bullet-active {
+    background: var(--white);
+    transform: scale(1.15);
+}
+
+.hero-content .hero-tag,
+.hero-content .hero-title,
+.hero-content .hero-description,
+.hero-content .hero-buttons {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.swiper-slide-active .hero-content .hero-tag {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.15s;
+}
+
+.swiper-slide-active .hero-content .hero-title {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.swiper-slide-active .hero-content .hero-description {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.45s;
+}
+
+.swiper-slide-active .hero-content .hero-buttons {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
 }
 
 .min-vh-hero {
@@ -2349,4 +2422,14 @@ SEO CONTENT SECTIONS
     flex-direction: row;
     margin-left: 0px !important;
   }
+}
+.spinner-border{
+    border: 5px solid var(--primary);
+}
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom: var(--swiper-pagination-bottom,8px);
+  top: var(--swiper-pagination-top,auto);
+  right: 34px;
+  width: 100%;
+  left: auto;
 }

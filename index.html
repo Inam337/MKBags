@@ -31,6 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
@@ -68,23 +69,68 @@
     </nav>
 
     <section class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="container position-relative p-4">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <span class="hero-tag">NEW ARRIVAL BAGS</span>
-                    <h1 class="hero-title">Imported Bags<br>in Pakistan</h1>
-                    <p class="hero-description">
-                        Shop premium imported handbags online in Pakistan. Discover women's imported bags,
-                        ladies handbags, crossbody bags, tote bags, and stylish shoulder bags — original
-                        imported quality with cash on delivery and nationwide shipping.
-                    </p>
-                    <div class="hero-buttons d-flex flex-wrap gap-3">
-                        <a href="products.html" class="btn btn-primary btn-lg">Shop Imported Bags</a>
-                        <a href="products.html" class="btn btn-outline-light btn-lg">Latest Bags Collection</a>
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide hero-slide" style="background-image: url('assets/images/hero/hero-bg-01.jpg')">
+                    <div class="hero-overlay"></div>
+                    <div class="container position-relative p-4">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 hero-content">
+                                <span class="hero-tag">NEW ARRIVAL BAGS</span>
+                                <h1 class="hero-title">Imported Bags<br>in Pakistan</h1>
+                                <p class="hero-description">
+                                    Shop premium imported handbags online in Pakistan. Discover women's imported bags,
+                                    ladies handbags, crossbody bags, tote bags, and stylish shoulder bags — original
+                                    imported quality with cash on delivery and nationwide shipping.
+                                </p>
+                                <div class="hero-buttons d-flex flex-wrap gap-3">
+                                    <a href="products.html" class="btn btn-primary btn-lg">Shop Imported Bags</a>
+                                    <a href="products.html" class="btn btn-outline-light btn-lg">Latest Bags Collection</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide hero-slide" style="background-image: url('assets/images/hero/hero-bg-05.jpg')">
+                    <div class="hero-overlay"></div>
+                    <div class="container position-relative p-4">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 hero-content">
+                                <span class="hero-tag">PREMIUM COLLECTION</span>
+                                <h1 class="hero-title">Ladies Handbags<br>&amp; Tote Bags</h1>
+                                <p class="hero-description">
+                                    Explore designer handbags, leather tote bags, and fashion bags for women.
+                                    Original imported quality from MK Imported Bags — delivered across Pakistan.
+                                </p>
+                                <div class="hero-buttons d-flex flex-wrap gap-3">
+                                    <a href="products.html" class="btn btn-primary btn-lg">Browse Handbags</a>
+                                    <a href="products.html" class="btn btn-outline-light btn-lg">View Tote Bags</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide hero-slide" style="background-image: url('assets/images/hero/about-bg.jpg')">
+                    <div class="hero-overlay"></div>
+                    <div class="container position-relative p-4">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 hero-content">
+                                <span class="hero-tag">SHOP WITH CONFIDENCE</span>
+                                <h1 class="hero-title">Cash on Delivery<br>Nationwide</h1>
+                                <p class="hero-description">
+                                    Order crossbody bags, shoulder bags, and sling bags online with easy cash on delivery.
+                                    Fast shipping from Islamabad to Karachi and every city in between.
+                                </p>
+                                <div class="hero-buttons d-flex flex-wrap gap-3">
+                                    <a href="products.html" class="btn btn-primary btn-lg">Order Now</a>
+                                    <a href="contact.html" class="btn btn-outline-light btn-lg">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="swiper-pagination hero-pagination"></div>
         </div>
     </section>
 
@@ -349,6 +395,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/data.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/whatsapp.js"></script>

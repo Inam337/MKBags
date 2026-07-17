@@ -442,7 +442,7 @@ HERO
 }
 
 .hero-pagination {
-    bottom: 28px !important;
+    bottom: 8px !important;
     z-index: 3;
 }
 
@@ -2429,7 +2429,7 @@ SEO CONTENT SECTIONS
 .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
   bottom: var(--swiper-pagination-bottom,8px);
   top: var(--swiper-pagination-top,auto);
-  right: 34px;
+  right: 12px;
   width: 100%;
   left: auto;
 }

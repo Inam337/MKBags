@@ -27,7 +27,7 @@ function getBrandLogoUrl() {
 }
 
 function buildCardHeader(label) {
-    const brand = SITE_CONFIG.brand || "MK Imported Bags";
+    const brand = SITE_CONFIG.brand || "MK Bags World";
     const logoUrl = getBrandLogoUrl();
 
     return `
@@ -41,7 +41,7 @@ function buildCardHeader(label) {
 }
 
 function buildWhatsAppTextSummary(items, total) {
-    const brand = SITE_CONFIG.brand || "MK Imported Bags";
+    const brand = SITE_CONFIG.brand || "MK Bags World";
     const lines = [
         `Hello! I would like to checkout from *${brand}*:`,
         ""
@@ -189,7 +189,7 @@ function buildContactFieldRow(label, value) {
 }
 
 function buildContactTextSummary(contact) {
-    const brand = SITE_CONFIG.brand || "MK Imported Bags";
+    const brand = SITE_CONFIG.brand || "MK Bags World";
     const fullName = `${contact.firstName} ${contact.lastName}`.trim();
     const lines = [
         `Hello ${brand}!`,
@@ -223,7 +223,7 @@ function buildContactCardHTML(contact) {
                 ${buildContactFieldRow("Order Number", contact.orderNumber)}
                 ${buildContactFieldRow("Message", contact.message)}
                 <p style="font-size:11px;color:#94A3B8;text-align:center;margin:8px 0 0;line-height:1.5;">
-                    Sent via MK Imported Bags website contact form
+                    Sent via MK Bags World website contact form
                 </p>
             </div>
         </div>
@@ -265,7 +265,7 @@ async function shareContactToWhatsApp(contact) {
     await shareCardToWhatsApp({
         html,
         text,
-        filename: "mkimportedbags-contact.png",
+        filename: "mkbagsworld-contact.png",
         cardLabel: "Contact card"
     });
 }
@@ -277,15 +277,30 @@ async function shareOrderCardToWhatsApp(items, total) {
     await shareCardToWhatsApp({
         html,
         text,
-        filename: "mkimportedbags-order.png",
+        filename: "mkbagsworld-order.png",
         cardLabel: "Order card"
     });
 }
 
-async function sendWhatsAppOrder() {
+async function sendWhatsAppOrder(button) {
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
+    }
+
+    const btn = button instanceof HTMLElement
+        ? button
+        : document.querySelector(".whatsapp-checkout-btn");
+
+    if (btn && btn.disabled) return;
+
+    const originalHTML = btn ? btn.innerHTML : "";
+
+    if (btn) {
+        btn.disabled = true;
+        btn.setAttribute("aria-busy", "true");
+        btn.classList.add("is-loading");
+        btn.innerHTML = '<span class="whatsapp-btn-spinner" aria-hidden="true"></span> Generating order...';
     }
 
     try {
@@ -293,6 +308,13 @@ async function sendWhatsAppOrder() {
     } catch (error) {
         console.error(error);
         openWhatsAppText(buildWhatsAppTextSummary(cart, getCartTotal()));
+    } finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.removeAttribute("aria-busy");
+            btn.classList.remove("is-loading");
+            btn.innerHTML = originalHTML;
+        }
     }
 }
 

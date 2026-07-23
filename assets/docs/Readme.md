@@ -1,6 +1,6 @@
-# MK Bags
+# MK Bags World
 
-Premium bags e-commerce website built with HTML, CSS, Bootstrap 5, and JavaScript.
+Premium imported bags e-commerce website built with HTML, CSS, Bootstrap 5, and JavaScript.
 
 ## Pages
 
@@ -8,6 +8,12 @@ Premium bags e-commerce website built with HTML, CSS, Bootstrap 5, and JavaScrip
 - `products.html` — Full product catalog with search & filters
 - `about.html` — Brand story and values
 - `contact.html` — Contact form (sends via WhatsApp)
+
+## SEO files
+
+- `robots.txt` — crawl rules + sitemap reference
+- `sitemap.xml` — indexable page map
+- `.htaccess` — HTTPS, www redirect, caching, compression, clean URLs
 
 ## Project Structure
 
@@ -17,6 +23,9 @@ MkBags/
 ├── products.html
 ├── about.html
 ├── contact.html
+├── robots.txt
+├── sitemap.xml
+├── .htaccess
 ├── assets/
 │   ├── css/
 │   │   ├── style.css
@@ -40,7 +49,7 @@ MkBags/
 - Shopping cart with localStorage persistence
 - WhatsApp checkout integration
 - Product search and category filtering
-- USD pricing
+- SEO-ready brand pages for MK Bags World
 
 ## Setup
 
@@ -52,11 +61,22 @@ npx serve .
 
 ## Configuration
 
-Edit `assets/js/data.js` to update:
+Edit `assets/data/site-config.js` (and `site-config.json`) to update:
+- Brand name
 - WhatsApp number
 - Contact email/phone
-- Product catalog and prices
+- Top bar text
 
 ## Author
 
 Inam Malik
+
+## Project Director
+
+Muhammad Daniyal Khan
+
+## Leadership By
+
+Ibtehaj Ali
+
+

@@ -423,9 +423,20 @@ HERO
 
 .hero-slide {
     position: relative;
-    background: center/cover no-repeat;
+    background: #1a1412 center/cover no-repeat;
     display: flex;
     align-items: center;
+    overflow: hidden;
+}
+
+.hero-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
 }
 
 .hero-overlay {
@@ -594,7 +605,7 @@ TRENDING SECTION
     font-size: 15px;
     color: var(--text-muted);
     margin: 0;
-    max-width: 420px;
+    /* max-width: 420px; */
 }
 
 .view-all-link {
@@ -1287,6 +1298,81 @@ PRODUCTS PAGE
     color: var(--white);
 }
 
+.seo-breadcrumb {
+    background: var(--surface, #f8fafc);
+    border-bottom: 1px solid var(--border, #e2e8f0);
+    padding: 12px 0;
+}
+
+.seo-breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.seo-breadcrumb li {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.seo-breadcrumb li:not(:last-child)::after {
+    content: "/";
+    color: #94a3b8;
+}
+
+.seo-breadcrumb a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.seo-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.seo-breadcrumb [aria-current="page"] {
+    color: var(--navy, #0f172a);
+    font-weight: 600;
+}
+
+.error-404-section {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.error-404-code {
+    font-size: 96px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--primary);
+    margin-bottom: 12px;
+    letter-spacing: -2px;
+}
+
+.error-404-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--navy, #0f172a);
+    margin-bottom: 12px;
+}
+
+.error-404-text {
+    max-width: 480px;
+    margin: 0 auto 28px;
+    color: #64748b;
+    line-height: 1.7;
+}
+
 .products-page-header h1 {
     font-size: 40px;
     font-weight: 800;
@@ -1682,6 +1768,45 @@ CART DRAWER (SCREENSHOT)
     padding: 20px 24px 24px;
     border-top: 1px solid var(--border);
     background: var(--white);
+}
+
+.whatsapp-checkout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.whatsapp-checkout-btn.is-loading,
+.whatsapp-checkout-btn:disabled {
+    --bs-btn-bg: #19A84C;
+    --bs-btn-border-color: #19A84C;
+    --bs-btn-disabled-bg: #19A84C;
+    --bs-btn-disabled-border-color: #19A84C;
+    --bs-btn-disabled-opacity: 1;
+    background: #19A84C !important;
+    border-color: #19A84C !important;
+    color: #fff !important;
+    opacity: 1;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.whatsapp-btn-spinner {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: whatsapp-spin 0.7s linear infinite;
+}
+
+@keyframes whatsapp-spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .cart-subtotal {

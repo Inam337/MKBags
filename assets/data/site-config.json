@@ -1,13 +1,16 @@
 {
-    "brand": "MK Imported Bags",
+    "brand": "MK Bags World",
     "currency": "PKR",
     "currencySymbol": "PKR ",
     "whatsapp": "923356000819",
-    "email": "support@mkimportedbags.com",
+    "email": "support@mkbagsworld.com",
     "phone": "+923356000819",
     "phoneHours": "Mon-Fri, 9am - 6pm",
     "address": "Islamabad / Rawalpindi, Pakistan",
     "hours": "Mon-Fri, 9am - 6pm",
     "freeShippingMin": 150,
-    "topBarText": "FREE NATIONWIDE DELIVERY | CASH ON DELIVERY AVAILABLE"
+    "topBarText": "FREE NATIONWIDE DELIVERY | CASH ON DELIVERY AVAILABLE",
+    "siteUrl": "https://mkbagsworld.com",
+    "googleAnalyticsId": "G-XXXXXXXXXX",
+    "googleSiteVerification": ""
 }

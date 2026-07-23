@@ -344,6 +344,32 @@ function initProductsPage() {
 
     populateCategoryFilter();
 
+    const params = new URLSearchParams(window.location.search);
+    const searchParam = params.get("search");
+    const categoryParam = params.get("category");
+
+    if (searchInput && searchParam) {
+        searchInput.value = searchParam;
+        searchKeyword = searchParam.trim().toLowerCase();
+    }
+
+    if (categoryFilter && categoryParam) {
+        const decoded = decodeURIComponent(categoryParam).trim();
+        const normalized = decoded.toLowerCase();
+        const match = [...categoryFilter.options].find(opt => {
+            const value = opt.value.toLowerCase();
+            return value === normalized || value.includes(normalized) || normalized.includes(value);
+        });
+        if (match && match.value !== "all") {
+            categoryFilter.value = match.value;
+            selectedCategory = match.value;
+        } else if (!searchKeyword) {
+            // Fallback: treat unknown category labels as a search term
+            searchKeyword = normalized;
+            if (searchInput) searchInput.value = decoded;
+        }
+    }
+
     if (searchInput) {
         searchInput.addEventListener("input", e => {
             searchKeyword = e.target.value.trim().toLowerCase();

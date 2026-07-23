@@ -114,15 +114,15 @@ function getFaqSchema() {
                 "name": "Do you deliver imported bags across Pakistan?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. MK Bags World delivers to Islamabad, Rawalpindi, Lahore, Karachi, Faisalabad, and cities nationwide."
+                    "text": "Yes. MK Bags World delivers imported handbags nationwide across Pakistan, including Islamabad, Rawalpindi, Lahore, Karachi, Faisalabad, Multan, Peshawar, and other major cities."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Can I buy imported handbags with cash on delivery?",
+                "name": "Can I buy imported handbags with cash on delivery (COD)?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. You can order ladies handbags with cash on delivery. Checkout easily via WhatsApp after adding items to your cart."
+                    "text": "Yes. You can order ladies handbags, tote bags, and crossbody bags with cash on delivery. Add items to your cart and checkout via WhatsApp to confirm your order and COD details."
                 }
             },
             {
@@ -130,7 +130,7 @@ function getFaqSchema() {
                 "name": "Are your bags original imported bags?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We specialize in original imported bags and premium imported handbags for women, including tote bags, crossbody bags, and shoulder bags."
+                    "text": "Yes. MK Bags World specializes in original imported bags and premium imported handbags for women — carefully selected for quality, design, stitching, and everyday durability."
                 }
             },
             {
@@ -138,7 +138,39 @@ function getFaqSchema() {
                 "name": "What types of women's bags do you sell?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Our collection includes ladies handbags, fashion handbags, leather handbags, tote bags, crossbody bags, sling bags, shoulder bags, wallets, and more."
+                    "text": "Our collection includes ladies handbags, fashion handbags, tote bags, crossbody bags, sling bags, shoulder bags, long-strap handbags, and related fashion accessories for women in Pakistan."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I place an order on MK Bags World?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Browse our products, choose your color and quantity, add items to the cart, then tap Checkout via WhatsApp. Our team will confirm availability, shipping, and payment details."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does delivery take for imported bags in Pakistan?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Delivery usually takes a few business days depending on your city. Orders to major cities such as Islamabad, Lahore, and Karachi are typically processed faster after WhatsApp confirmation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is your return or exchange policy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Eligible returns and exchanges follow the MK Bags World Return Policy. Contact us via WhatsApp or the Contact page if you need help with an order."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why choose MK Bags World for imported handbags?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "MK Bags World offers premium imported handbags for women, cash on delivery, nationwide shipping, and easy WhatsApp ordering — so you can shop stylish bags online in Pakistan with confidence."
                 }
             }
         ]

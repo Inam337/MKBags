@@ -1,21 +1,17 @@
 # MK Bags World — robots.txt
-# https://mkbagsworld.com
+# Preferred host: https://www.mkbagsworld.com
 
 User-agent: *
 Allow: /
 
-# Allow CSS/JS/images so Google can render pages correctly
 Allow: /assets/css/
 Allow: /assets/js/
 Allow: /assets/images/
 
-# Keep internal data files out of the index
 Disallow: /assets/data/
 
-# Block common junk / duplicate query spam (optional safety)
 Disallow: /*?*utm_
 Disallow: /*?*fbclid=
 Disallow: /*?*gclid=
 
-# Sitemap
-Sitemap: https://mkbagsworld.com/sitemap.xml
+Sitemap: https://www.mkbagsworld.com/sitemap.xml

@@ -6,7 +6,7 @@ MK Bags World — SEO Structured Data (JSON-LD)
 
 "use strict";
 
-var SEO_SITE_URL = "https://mkbagsworld.com";
+var SEO_SITE_URL = "https://www.mkbagsworld.com";
 var SEO_OG_IMAGE = SEO_SITE_URL + "/assets/images/hero/hero-bg.jpg";
 
 function injectJsonLd(data) {

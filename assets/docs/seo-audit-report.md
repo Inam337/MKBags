@@ -2,7 +2,7 @@
 
 **Project:** MK Bags World (static HTML/CSS/JS storefront)  
 **Report date:** 23 July 2026  
-**Canonical domain in code:** `https://mkbagsworld.com`  
+**Canonical domain in code:** `https://www.mkbagsworld.com`  
 **Local project path:** `MKBags/`  
 **Report file:** `seo-audit-report.md`
 
@@ -54,7 +54,7 @@ All Critical, Important, and Nice-to-have items from the audit have been applied
 
 ### Critical
 - [x] Unique titles + meta descriptions (all pages)
-- [x] Canonical URLs (`https://mkbagsworld.com/...`)
+- [x] Canonical URLs (`https://www.mkbagsworld.com/...`)
 - [x] `robots: index, follow` (404 uses `noindex, follow`)
 - [x] Open Graph tags sitewide
 - [x] Twitter cards sitewide
@@ -103,7 +103,7 @@ All Critical, Important, and Nice-to-have items from the audit have been applied
 - Allows crawling of site + CSS/JS/images
 - Disallows `/assets/data/`
 - Blocks common tracking query spam (`utm_`, `fbclid`, `gclid`)
-- Points to sitemap: `https://mkbagsworld.com/sitemap.xml`
+- Points to sitemap: `https://www.mkbagsworld.com/sitemap.xml`
 
 ### `sitemap.xml`
 Includes:
@@ -162,17 +162,17 @@ var GSC_CONTENT = "";         // ← paste Search Console verification content
 Until `GA_ID` is real, analytics intentionally does **not** load (safe).
 
 ### Indexing steps after deploy
-1. Verify property in [Google Search Console](https://search.google.com/search-console) for `https://mkbagsworld.com`
-2. Submit sitemap: `https://mkbagsworld.com/sitemap.xml`
+1. Verify property in [Google Search Console](https://search.google.com/search-console) for `https://www.mkbagsworld.com`
+2. Submit sitemap: `https://www.mkbagsworld.com/sitemap.xml`
 3. Inspect homepage + products URL → Request indexing
-4. Confirm `https://mkbagsworld.com/robots.txt` is reachable
+4. Confirm `https://www.mkbagsworld.com/robots.txt` is reachable
 
 ---
 
 ## 7. Brand / domain notes
 
 - Brand in local code: **MK Bags World**
-- Canonical host in code: **non-www** `https://mkbagsworld.com`
+- Canonical host in code: **non-www** `https://www.mkbagsworld.com`
 - Live site previously observed as [www.mkbagsworld.com](https://www.mkbagsworld.com/) still showing old **MK Imported Bags** title/content
 - After deploy, `.htaccess` will redirect `www` → non-www to match canonical tags
 

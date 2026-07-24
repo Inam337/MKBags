@@ -9,7 +9,8 @@ Google tag (gtag.js) — Measurement ID: G-ETJ8PK8HQ4
 
     var GA_ID = "G-ETJ8PK8HQ4";
 
-    // Optional: paste Google Search Console verification content here
+    // Paste Google Search Console HTML-tag verification CONTENT value here
+    // Example: var GSC_CONTENT = "AbCdEf123...";
     var GSC_CONTENT = "";
 
     if (GSC_CONTENT) {

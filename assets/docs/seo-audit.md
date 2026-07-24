@@ -1,7 +1,7 @@
 # MK Bags World — SEO Audit & Implementation Guide
 
 Last updated: 2026-07-23  
-Site: [https://mkbagsworld.com](https://mkbagsworld.com)
+Site: [https://www.mkbagsworld.com](https://www.mkbagsworld.com)
 
 This document wraps up the SEO work applied to the project and lists what you must configure before / after going live so Google can index the site.
 
@@ -78,14 +78,14 @@ Optional: the same IDs are also stored in `assets/data/site-config.js` for refer
 ## 4. Google Search Console — indexing checklist
 
 1. Go to [Google Search Console](https://search.google.com/search-console).
-2. Add property: `https://mkbagsworld.com`
+2. Add property: `https://www.mkbagsworld.com`
 3. Verify ownership:
    - **HTML tag method:** paste the `content="..."` value into `GSC_CONTENT` in `assets/js/analytics.js`, **or**
    - Upload the HTML verification file to the site root, **or**
    - Verify via DNS TXT record
-4. Submit sitemap: `https://mkbagsworld.com/sitemap.xml`
+4. Submit sitemap: `https://www.mkbagsworld.com/sitemap.xml`
 5. Use **URL Inspection** on homepage + products, then **Request indexing**
-6. Confirm `robots.txt` is reachable: `https://mkbagsworld.com/robots.txt`
+6. Confirm `robots.txt` is reachable: `https://www.mkbagsworld.com/robots.txt`
 
 ---
 
@@ -97,7 +97,7 @@ Optional: the same IDs are also stored in `assets/data/site-config.js` for refer
 - [ ] Add Search Console verification
 - [ ] Submit `sitemap.xml` in Search Console
 - [ ] Confirm `.htaccess` works on Apache host (or convert rules for Nginx)
-- [ ] Test: `https://mkbagsworld.com/about` 301 → `.../about.html`
+- [ ] Test: `https://www.mkbagsworld.com/about` 301 → `.../about.html`
 - [ ] Test: unknown URL shows `404.html` (not homepage)
 - [ ] Test social share preview (Facebook Debugger / Twitter Card Validator) with JPG OG image
 - [ ] Confirm WhatsApp number and social links are correct
@@ -164,7 +164,7 @@ After deploy, run:
 ## 10. Brand & domain notes
 
 - Public brand: **MK Bags World**
-- Canonical host used in code: `https://mkbagsworld.com`
+- Canonical host used in code: `https://www.mkbagsworld.com`
 - If the live domain differs, update: all canonical/OG URLs, `sitemap.xml`, `robots.txt`, `seo.js` (`SEO_SITE_URL`), and this file.
 
 ---

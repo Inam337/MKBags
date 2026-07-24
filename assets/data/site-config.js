@@ -10,7 +10,7 @@ window.MKBAGS_SITE_CONFIG = {
     "hours": "Mon-Fri, 9am - 6pm",
     "freeShippingMin": 150,
     "topBarText": "FREE NATIONWIDE DELIVERY | CASH ON DELIVERY AVAILABLE",
-    "siteUrl": "https://mkbagsworld.com",
+    "siteUrl": "https://www.mkbagsworld.com",
     "googleAnalyticsId": "G-ETJ8PK8HQ4",
     "googleSiteVerification": ""
 };

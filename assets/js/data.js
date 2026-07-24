@@ -10,11 +10,11 @@ let SITE_CONFIG = {};
 let ALL_PRODUCTS = [];
 
 function getAssetBasePath() {
-    const script = document.currentScript || document.querySelector('script[src*="data.js"]');
+    const script = document.currentScript || document.querySelector('script[src*="data.js"], script[src*="data.min.js"]');
     if (!script) return "";
 
     const src = script.getAttribute("src") || "";
-    return src.replace(/assets\/js\/data\.js(?:\?.*)?$/, "");
+    return src.replace(/assets\/js\/data(?:\.min)?\.js(?:\?.*)?$/, "");
 }
 
 function resolveAssetPath(path) {

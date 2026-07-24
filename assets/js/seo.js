@@ -20,7 +20,7 @@ function injectJsonLd(data) {
 function getOrganizationSchema() {
     var brand = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.brand) || "MK Bags World";
     var email = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.email) || "support@mkbagsworld.com";
-    var phone = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.phone) || "+923356000819";
+    var phone = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.phone) || "+923020519396";
     var address = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.address) || "Islamabad / Rawalpindi, Pakistan";
 
     return {
@@ -63,7 +63,7 @@ function getWebSiteSchema() {
 function getLocalBusinessSchema() {
     var brand = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.brand) || "MK Bags World";
     var email = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.email) || "support@mkbagsworld.com";
-    var phone = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.phone) || "+923356000819";
+    var phone = (typeof SITE_CONFIG !== "undefined" && SITE_CONFIG.phone) || "+923020519396";
 
     return {
         "@context": "https://schema.org",

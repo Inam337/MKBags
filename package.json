@@ -1,0 +1,15 @@
+{
+  "name": "mkbags",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MK Bags World static storefront",
+  "scripts": {
+    "minify": "npm run minify:css && npm run minify:js",
+    "minify:css": "cleancss -o assets/css/style.min.css assets/css/style.css && cleancss -o assets/css/responsive.min.css assets/css/responsive.css",
+    "minify:js": "terser assets/js/analytics.js -c -m -o assets/js/analytics.min.js && terser assets/js/data.js -c -m -o assets/js/data.min.js && terser assets/js/cart.js -c -m -o assets/js/cart.min.js && terser assets/js/whatsapp.js -c -m -o assets/js/whatsapp.min.js && terser assets/js/products.js -c -m -o assets/js/products.min.js && terser assets/js/app.js -c -m -o assets/js/app.min.js && terser assets/js/seo.js -c -m -o assets/js/seo.min.js && terser assets/data/site-config.js -c -m -o assets/data/site-config.min.js && terser assets/data/catalog.data.js -c -m -o assets/data/catalog.data.min.js"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.39.0"
+  }
+}

@@ -72,7 +72,7 @@ All Critical, Important, and Nice-to-have items from the audit have been applied
 - [x] Duplicate URL control (`/about` → `/about.html`, `/index.html` → `/`)
 - [x] Expanded legal meta descriptions
 - [x] Products TikTok URL fixed
-- [x] Products WhatsApp number fixed (`923356000819`)
+- [x] Products WhatsApp number fixed (`923020519396`)
 
 ### Nice-to-have
 - [x] `<main>` landmark on all pages

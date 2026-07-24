@@ -15,3 +15,6 @@ Disallow: /*?*fbclid=
 Disallow: /*?*gclid=
 
 Sitemap: https://www.mkbagsworld.com/sitemap.xml
+
+# AI / LLM discovery
+Allow: /llms.txt

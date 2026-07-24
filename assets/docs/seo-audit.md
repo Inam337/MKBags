@@ -29,7 +29,7 @@ This document wraps up the SEO work applied to the project and lists what you mu
 | Duplicate URL fix | Done | `.htaccess` 301: `/about` → `/about.html`, `/index.html` → `/` |
 | Longer legal meta descriptions | Done | privacy / terms / return |
 | Products TikTok link | Fixed | Real TikTok URL |
-| Products WhatsApp number | Fixed | `wa.me/923356000819` |
+| Products WhatsApp number | Fixed | `wa.me/923020519396` |
 
 ### Schemas injected by `seo.js`
 - **Organization** (+ `sameAs` social profiles) — all pages  

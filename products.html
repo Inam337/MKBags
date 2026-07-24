@@ -28,27 +28,27 @@
     <link rel="shortcut icon" href="assets/images/icons/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
     <link rel="manifest" href="assets/images/icons/site.webmanifest">
-    <script src="assets/js/analytics.js"></script>
+    <script src="assets/js/analytics.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/responsive.min.css">
 </head>
 
 <body data-page="products">
 
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
                 <img src="assets/images/logo/logo.svg" alt="MK Bags World" class="logo-img logo-img-desktop">
                 <img src="assets/images/logo/logo-mob.svg" alt="MK Bags World" class="logo-img logo-img-mobile">
             </a>
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="products.html" class="nav-link active">Products</a></li>
                     <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
@@ -74,7 +74,7 @@
     <nav class="seo-breadcrumb" aria-label="Breadcrumb">
         <div class="container">
             <ol>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li aria-current="page">Products</li>
             </ol>
         </div>
@@ -83,8 +83,12 @@
     <main id="main-content">
     <section class="products-page-header">
         <div class="container">
-            <h1>Ladies Handbags &amp; Imported Bags</h1>
-            <p>Discover our complete collection of imported handbags, fashion handbags, tote bags, crossbody bags, and shoulder bags. Buy bags online in Pakistan — new arrivals and trending bags at the best price.</p>
+            <h1 id="productsPageTitle">Ladies Handbags &amp; Imported Bags</h1>
+            <p id="productsPageIntro">
+                Discover the complete MK Bags World collection of imported handbags, fashion handbags, tote bags,
+                crossbody bags, and shoulder bags. Buy bags online in Pakistan with cash on delivery, trusted quality,
+                and nationwide shipping to Islamabad, Lahore, Karachi, Rawalpindi, Faisalabad, and more.
+            </p>
         </div>
     </section>
 
@@ -117,6 +121,38 @@
                 <button class="page-btn active">1</button>
                 <button class="page-btn" disabled>Next</button>
             </nav>
+
+            <article class="seo-page-content mt-5">
+                <h2>Shop Imported Handbags Online in Pakistan</h2>
+                <p>
+                    MK Bags World is your online destination for premium imported bags and ladies handbags in Pakistan.
+                    Whether you need a daily office handbag, a spacious tote for shopping, a stylish crossbody for travel,
+                    or a long-strap shoulder bag for evenings out, our catalog is curated for quality, comfort, and modern design.
+                </p>
+                <p>
+                    Every product listing shows clear photos, available colors, and pricing in PKR so you can compare options
+                    easily. Filter by category, search by name, and sort by price to find the right bag faster. When you are ready,
+                    add items to your cart and checkout via WhatsApp for quick order confirmation.
+                </p>
+                <h3>Popular bag categories</h3>
+                <ul>
+                    <li><strong>Ladies Hand Bags</strong> — versatile imported handbags for work, university, and everyday use.</li>
+                    <li><strong>Ladies Tote Bags</strong> — roomy tote bags for shopping, office, and travel essentials.</li>
+                    <li><strong>Cross Body Bags</strong> — hands-free crossbody and sling styles for casual outings.</li>
+                    <li><strong>Long Strap Handbags</strong> — comfortable shoulder-friendly bags with longer straps.</li>
+                </ul>
+                <h3>Cash on delivery and nationwide shipping</h3>
+                <p>
+                    We make buying imported handbags online simple. Order with cash on delivery (COD) and get nationwide
+                    delivery across Pakistan. Our team confirms availability, color, and shipping details on WhatsApp before dispatch,
+                    so you shop with confidence from Islamabad to Karachi and beyond.
+                </p>
+                <p>
+                    Looking for help choosing a bag? Visit our <a href="contact.html">Contact</a> page or message us on WhatsApp.
+                    You can also learn more about our brand on the <a href="about.html">About Us</a> page and review our
+                    <a href="return-policy.html">Return Policy</a> before you order.
+                </p>
+            </article>
         </div>
     </section>
 
@@ -126,7 +162,7 @@
         <div class="container">
             <div class="row gy-5">
                 <div class="col-lg-5">
-                    <a href="index.html" class="footer-brand">
+                    <a href="/" class="footer-brand">
                         <img src="assets/images/logo/logo-white.svg" alt="MK Bags World" class="footer-logo">
                     </a>
                     <p class="footer-about">
@@ -142,7 +178,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="products.html">Products</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
@@ -181,7 +217,7 @@
         </div>
     </div>
 
-    <a href="https://wa.me/923356000819" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/923020519396" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
         <i class="bi bi-whatsapp"></i>
     </a>
 
@@ -190,12 +226,12 @@
     </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/data.js"></script>
-    <script src="assets/js/cart.js"></script>
-    <script src="assets/js/whatsapp.js"></script>
-    <script src="assets/js/products.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/seo.js"></script>
+    <script src="assets/js/data.min.js"></script>
+    <script src="assets/js/cart.min.js"></script>
+    <script src="assets/js/whatsapp.min.js"></script>
+    <script src="assets/js/products.min.js"></script>
+    <script src="assets/js/app.min.js"></script>
+    <script src="assets/js/seo.min.js"></script>
 </body>
 
 </html>

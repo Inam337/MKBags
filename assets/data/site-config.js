@@ -11,6 +11,6 @@ window.MKBAGS_SITE_CONFIG = {
     "freeShippingMin": 150,
     "topBarText": "FREE NATIONWIDE DELIVERY | CASH ON DELIVERY AVAILABLE",
     "siteUrl": "https://mkbagsworld.com",
-    "googleAnalyticsId": "G-XXXXXXXXXX",
+    "googleAnalyticsId": "G-ETJ8PK8HQ4",
     "googleSiteVerification": ""
 };

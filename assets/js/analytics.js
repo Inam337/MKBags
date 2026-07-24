@@ -1,16 +1,15 @@
 /*
 =========================================================
 MK Bags World — Analytics (GA4 + Search Console)
-Replace GA_ID and GSC_CONTENT before going live.
+Google tag (gtag.js) — Measurement ID: G-ETJ8PK8HQ4
 =========================================================
 */
 (function () {
     "use strict";
 
-    // TODO: Replace with your real Google Analytics 4 Measurement ID
-    var GA_ID = "G-XXXXXXXXXX";
+    var GA_ID = "G-ETJ8PK8HQ4";
 
-    // TODO: Replace with Google Search Console verification content (index only needed)
+    // Optional: paste Google Search Console verification content here
     var GSC_CONTENT = "";
 
     if (GSC_CONTENT) {
@@ -20,9 +19,7 @@ Replace GA_ID and GSC_CONTENT before going live.
         document.head.appendChild(meta);
     }
 
-    if (!GA_ID || /X{4,}/i.test(GA_ID)) {
-        return;
-    }
+    if (!GA_ID) return;
 
     var script = document.createElement("script");
     script.async = true;

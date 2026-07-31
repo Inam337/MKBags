@@ -265,12 +265,34 @@ RESPONSIVE CSS — BagsProMax
 
     .product-image-overlay {
         opacity: 1;
-        background: linear-gradient(180deg, rgba(15, 23, 42, 0) 55%, rgba(15, 23, 42, 0.35) 100%);
+        background: none;
+        inset: auto 8px 8px auto;
     }
 
     .product-overlay-btn {
-        transform: translateY(0);
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+        transform: none;
         max-width: none;
+    }
+
+    .product-gallery-slide {
+        padding: 56px 16px 40px;
+    }
+
+    .product-gallery-modal .product-gallery-nav {
+        width: 36px;
+        height: 36px;
+        --swiper-navigation-size: 22px;
+    }
+
+    .product-gallery-modal .swiper-button-prev {
+        left: 8px;
+    }
+
+    .product-gallery-modal .swiper-button-next {
+        right: 8px;
     }
 
     .mission-card,

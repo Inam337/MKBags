@@ -1,4 +1,4 @@
-﻿window.MKBAGS_PRODUCTS = [
+window.MKBAGS_PRODUCTS = [
     {
         "id": 1,
         "name": "Brown Leather Crossbody Bag for Women",
@@ -9,10 +9,17 @@
         "discountedPrice": 4899,
         "description": "Imported brown leather crossbody bag for everyday wear. Compact sling design ideal for casual outings and city errands across Pakistan.",
         "image": "assets/images/products/ladies-cross-body-bag-01/product-image-01.jpeg",
-        "colors": ["Brown"],
+        "colors": [
+            "Brown"
+        ],
         "defaultColor": "Brown",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-cross-body-bag-01/product-image-01.jpeg",
+            "assets/images/products/ladies-cross-body-bag-01/product-image-02.jpeg",
+            "assets/images/products/ladies-cross-body-bag-01/product-image-03.jpeg"
+        ]
     },
     {
         "id": 2,
@@ -24,10 +31,17 @@
         "discountedPrice": 6399,
         "description": "Premium black imported sling bag with hands-free comfort. Stylish ladies crossbody bag perfect for office, travel, and daily use.",
         "image": "assets/images/products/ladies-cross-body-bag-02/product-image-01.jpeg",
-        "colors": ["Black"],
+        "colors": [
+            "Black"
+        ],
         "defaultColor": "Black",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-cross-body-bag-02/product-image-01.jpeg",
+            "assets/images/products/ladies-cross-body-bag-02/product-image-02.jpeg",
+            "assets/images/products/ladies-cross-body-bag-02/product-image-03.jpeg"
+        ]
     },
     {
         "id": 3,
@@ -39,10 +53,17 @@
         "discountedPrice": 4899,
         "description": "Elegant brown ladies crossbody handbag with a timeless look. Lightweight imported shoulder crossbody bag for work and weekend style.",
         "image": "assets/images/products/ladies-cross-body-bag-03/product-image-01.jpeg",
-        "colors": ["Brown"],
+        "colors": [
+            "Brown"
+        ],
         "defaultColor": "Brown",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-cross-body-bag-03/product-image-01.jpeg",
+            "assets/images/products/ladies-cross-body-bag-03/product-image-02.jpeg",
+            "assets/images/products/ladies-cross-body-bag-03/product-image-03.jpeg"
+        ]
     },
     {
         "id": 4,
@@ -54,10 +75,17 @@
         "discountedPrice": 4499,
         "description": "Budget-friendly imported crossbody bag in rich brown. Trendy sling bag for girls who want style and value in one carry.",
         "image": "assets/images/products/ladies-cross-body-bag-03/product-image-01.jpeg",
-        "colors": ["Brown"],
+        "colors": [
+            "Brown"
+        ],
         "defaultColor": "Brown",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-cross-body-bag-03/product-image-01.jpeg",
+            "assets/images/products/ladies-cross-body-bag-03/product-image-02.jpeg",
+            "assets/images/products/ladies-cross-body-bag-03/product-image-03.jpeg"
+        ]
     },
     {
         "id": 5,
@@ -69,10 +97,17 @@
         "discountedPrice": 4999,
         "description": "Chic white fashion crossbody bag that brightens any outfit. Soft imported sling bag for parties, brunches, and casual days out.",
         "image": "assets/images/products/ladies-cross-body-bag-05/product-image-01.jpeg",
-        "colors": ["White"],
+        "colors": [
+            "White"
+        ],
         "defaultColor": "White",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-cross-body-bag-05/product-image-01.jpeg",
+            "assets/images/products/ladies-cross-body-bag-05/product-image-02.jpeg",
+            "assets/images/products/ladies-cross-body-bag-05/product-image-03.jpeg"
+        ]
     },
     {
         "id": 6,
@@ -84,10 +119,16 @@
         "discountedPrice": 5199,
         "description": "Bold red leather handbag with adjustable long strap. Wear as a shoulder bag or crossbody for parties and evening looks.",
         "image": "assets/images/products/ladies-hand-bag-long-strap-01/product-image-01.jpeg",
-        "colors": ["Red"],
+        "colors": [
+            "Red"
+        ],
         "defaultColor": "Red",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-long-strap-01/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-long-strap-01/product-image-02.jpeg"
+        ]
     },
     {
         "id": 7,
@@ -99,10 +140,16 @@
         "discountedPrice": 4999,
         "description": "Imported brown ladies shoulder bag with long strap comfort. Stylish everyday handbag for office, shopping, and travel.",
         "image": "assets/images/products/ladies-hand-bag-long-strap-02/product-image-01.jpeg",
-        "colors": ["Brown"],
+        "colors": [
+            "Brown"
+        ],
         "defaultColor": "Brown",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-long-strap-02/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-long-strap-02/product-image-02.jpeg"
+        ]
     },
     {
         "id": 8,
@@ -114,10 +161,17 @@
         "discountedPrice": 3499,
         "description": "Pretty pink ladies handbag with a soft leather-look finish. Feminine fashion handbag for girls and casual daily wear.",
         "image": "assets/images/products/ladies-hand-bag-01/product-image-01.jpeg",
-        "colors": ["Pink"],
+        "colors": [
+            "Pink"
+        ],
         "defaultColor": "Pink",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-01/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-01/product-image-02.jpeg",
+            "assets/images/products/ladies-hand-bag-01/product-image-03.jpeg"
+        ]
     },
     {
         "id": 9,
@@ -129,10 +183,16 @@
         "discountedPrice": 5499,
         "description": "Premium brown leather handbag for women who love classic style. Spacious imported handbag suited for office and everyday use.",
         "image": "assets/images/products/ladies-hand-bag-02/product-image-01.jpeg",
-        "colors": ["Brown"],
+        "colors": [
+            "Brown"
+        ],
         "defaultColor": "Brown",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-02/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-02/product-image-02.jpeg"
+        ]
     },
     {
         "id": 10,
@@ -144,10 +204,16 @@
         "discountedPrice": 5499,
         "description": "Statement red designer handbag with a polished imported finish. Perfect party handbag and gift idea for stylish women in Pakistan.",
         "image": "assets/images/products/ladies-hand-bag-03/product-image-01.jpeg",
-        "colors": ["Red"],
+        "colors": [
+            "Red"
+        ],
         "defaultColor": "Red",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-03/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-03/product-image-02.jpeg"
+        ]
     },
     {
         "id": 11,
@@ -159,10 +225,17 @@
         "discountedPrice": 5999,
         "description": "Elegant brown office handbag built for workdays and meetings. Structured ladies handbag with room for essentials and documents.",
         "image": "assets/images/products/ladies-hand-bag-04/product-image-01.jpeg",
-        "colors": ["Brown"],
+        "colors": [
+            "Brown"
+        ],
         "defaultColor": "Brown",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-04/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-04/product-image-02.jpeg",
+            "assets/images/products/ladies-hand-bag-04/product-image-03.jpeg"
+        ]
     },
     {
         "id": 12,
@@ -174,10 +247,16 @@
         "discountedPrice": 6199,
         "description": "Luxury brown imported ladies handbag with refined stitching. A premium fashion handbag for special occasions and daily elegance.",
         "image": "assets/images/products/ladies-hand-bag-05/product-image-01.jpeg",
-        "colors": ["Brown"],
+        "colors": [
+            "Brown"
+        ],
         "defaultColor": "Brown",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-05/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-05/product-image-02.jpeg"
+        ]
     },
     {
         "id": 13,
@@ -189,10 +268,17 @@
         "discountedPrice": 5999,
         "description": "Warm camel tan handbag that pairs with jeans or formal wear. Trendy ladies handbag for versatile, all-season styling.",
         "image": "assets/images/products/ladies-hand-bag-06/product-image-01.jpeg",
-        "colors": ["Camel Tan"],
+        "colors": [
+            "Camel Tan"
+        ],
         "defaultColor": "Camel Tan",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-06/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-06/product-image-02.jpeg",
+            "assets/images/products/ladies-hand-bag-06/product-image-03.jpeg"
+        ]
     },
     {
         "id": 14,
@@ -204,10 +290,17 @@
         "discountedPrice": 5999,
         "description": "Rich burgundy party handbag with a glamorous imported look. Ideal fashion handbag for dinners, weddings, and evening events.",
         "image": "assets/images/products/ladies-hand-bag-07/product-image-01.jpeg",
-        "colors": ["Burgundy"],
+        "colors": [
+            "Burgundy"
+        ],
         "defaultColor": "Burgundy",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-07/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-07/product-image-02.jpeg",
+            "assets/images/products/ladies-hand-bag-07/product-image-03.jpeg"
+        ]
     },
     {
         "id": 15,
@@ -219,10 +312,16 @@
         "discountedPrice": 6499,
         "description": "Clean white luxury handbag that elevates any outfit. Fresh imported ladies bag for summer style and special occasions.",
         "image": "assets/images/products/ladies-hand-bag-08/product-image-01.jpeg",
-        "colors": ["White"],
+        "colors": [
+            "White"
+        ],
         "defaultColor": "White",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-08/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-08/product-image-02.jpeg"
+        ]
     },
     {
         "id": 16,
@@ -234,10 +333,17 @@
         "discountedPrice": 5799,
         "description": "Soft cream beige casual handbag for everyday elegance. Neutral-tone ladies bag that pairs with jeans, dresses, and office wear.",
         "image": "assets/images/products/ladies-hand-bag-09/product-image-01.jpeg",
-        "colors": ["Cream Beige"],
+        "colors": [
+            "Cream Beige"
+        ],
         "defaultColor": "Cream Beige",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-09/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-09/product-image-02.jpeg",
+            "assets/images/products/ladies-hand-bag-09/product-image-03.jpeg"
+        ]
     },
     {
         "id": 17,
@@ -249,10 +355,16 @@
         "discountedPrice": 5799,
         "description": "Original imported white ladies handbag with a modern silhouette. Bright fashion accessory for shopping days and brunch looks.",
         "image": "assets/images/products/ladies-hand-bag-010/product-image-01.jpeg",
-        "colors": ["White"],
+        "colors": [
+            "White"
+        ],
         "defaultColor": "White",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-010/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-010/product-image-02.jpeg"
+        ]
     },
     {
         "id": 18,
@@ -264,10 +376,16 @@
         "discountedPrice": 5199,
         "description": "Vibrant red long-strap shoulder bag for bold everyday style. Convertible ladies handbag you can wear on the shoulder or across the body.",
         "image": "assets/images/products/ladies-hand-bag-long-strap-01/product-image-01.jpeg",
-        "colors": ["Red"],
+        "colors": [
+            "Red"
+        ],
         "defaultColor": "Red",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-long-strap-01/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-long-strap-01/product-image-02.jpeg"
+        ]
     },
     {
         "id": 19,
@@ -279,10 +397,16 @@
         "discountedPrice": 4999,
         "description": "Brown imported ladies bag with a comfortable long strap. Practical shoulder handbag for commuting, shopping, and travel days.",
         "image": "assets/images/products/ladies-hand-bag-long-strap-02/product-image-01.jpeg",
-        "colors": ["Brown"],
+        "colors": [
+            "Brown"
+        ],
         "defaultColor": "Brown",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-hand-bag-long-strap-02/product-image-01.jpeg",
+            "assets/images/products/ladies-hand-bag-long-strap-02/product-image-02.jpeg"
+        ]
     },
     {
         "id": 20,
@@ -294,10 +418,17 @@
         "discountedPrice": 6799,
         "description": "Spacious brown beige leather tote bag for work and shopping. Premium imported tote bag Pakistan women love for daily carry.",
         "image": "assets/images/products/ladies-tote-bag-01/product-image-01.jpeg",
-        "colors": ["Brown Beige"],
+        "colors": [
+            "Brown Beige"
+        ],
         "defaultColor": "Brown Beige",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-tote-bag-01/product-image-01.jpeg",
+            "assets/images/products/ladies-tote-bag-01/product-image-02.jpeg",
+            "assets/images/products/ladies-tote-bag-01/product-image-03.jpeg"
+        ]
     },
     {
         "id": 21,
@@ -309,10 +440,17 @@
         "discountedPrice": 6499,
         "description": "Dark brown imported tote bag with striking red handles. Roomy shopping tote for office essentials, books, and weekend errands.",
         "image": "assets/images/products/ladies-tote-bag-02/product-image-01.jpeg",
-        "colors": ["Dark Brown with Red Handle"],
+        "colors": [
+            "Dark Brown with Red Handle"
+        ],
         "defaultColor": "Dark Brown with Red Handle",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-tote-bag-02/product-image-01.jpeg",
+            "assets/images/products/ladies-tote-bag-02/product-image-02.jpeg",
+            "assets/images/products/ladies-tote-bag-02/product-image-03.jpeg"
+        ]
     },
     {
         "id": 22,
@@ -324,10 +462,17 @@
         "discountedPrice": 6199,
         "description": "Classic brown ladies tote bag with a clean, professional shape. Durable imported tote for work, university, and everyday travel.",
         "image": "assets/images/products/ladies-tote-bag-03/product-image-01.jpeg",
-        "colors": ["Brown"],
+        "colors": [
+            "Brown"
+        ],
         "defaultColor": "Brown",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-tote-bag-03/product-image-01.jpeg",
+            "assets/images/products/ladies-tote-bag-03/product-image-02.jpeg",
+            "assets/images/products/ladies-tote-bag-03/product-image-03.jpeg"
+        ]
     },
     {
         "id": 23,
@@ -339,9 +484,16 @@
         "discountedPrice": 6199,
         "description": "Premium brown imported shopping tote with generous capacity. Stylish women's tote bag for market runs, office days, and travel.",
         "image": "assets/images/products/ladies-tote-bag-04/product-image-01.jpeg",
-        "colors": ["Brown"],
+        "colors": [
+            "Brown"
+        ],
         "defaultColor": "Brown",
         "stock": "in-stock",
-        "trending": true
+        "trending": true,
+        "images": [
+            "assets/images/products/ladies-tote-bag-04/product-image-01.jpeg",
+            "assets/images/products/ladies-tote-bag-04/product-image-02.jpeg",
+            "assets/images/products/ladies-tote-bag-04/product-image-03.jpeg"
+        ]
     }
 ];
